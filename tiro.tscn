@@ -8,7 +8,6 @@ size = Vector2(13, 25.5)
 
 [node name="Tiro" type="Area2D"]
 script = ExtResource("1_gp2hl")
-veloc = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.7881416e-07, 0)
