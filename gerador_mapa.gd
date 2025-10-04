@@ -29,7 +29,7 @@ func g_inicio() -> Vector2i:
 	var inicio :Vector2i
 	inicio.x = randi_range(0,Dimensoes.x - 1)
 	inicio.y = randi_range(0,Dimensoes.y - 1)
-	Mapa[inicio.x][inicio.y] = "I"
+	Mapa[inicio.x][inicio.y] = -1
 	return inicio
 
 #cria o caminho "principal"
