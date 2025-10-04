@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Projeto jogo IFSP"
-run/main_scene="uid://qej6i5vmxvhs"
+run/main_scene="uid://d2yw5ewoqqtis"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+character=""
+Enimy=""
 
 [input]
 

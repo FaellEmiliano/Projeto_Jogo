@@ -1,0 +1,262 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2yw5ewoqqtis"]
+
+[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://icon.svg" id="2_uas41"]
+
+[sub_resource type="GDScript" id="GDScript_ybwhg"]
+script/source = "extends CharacterBody2D
+class_name enimy
+
+var _is_dead: bool = false
+var _player_ref  = null
+
+@export_category(\"object\")
+@export var _texture: Sprite2D = null
+@export var _animation: AnimationPlayer = null
+
+func _on_detectio_area_body_entered(_body) -> void:
+	if is_in_group(\"character\"):
+		_player_ref = _body
+		
+		
+func _on_detection_area_body_exited(_body) -> void:
+	if is_in_group(\"character\"):
+		_player_ref = null
+		
+func _physics_process(_delta: float) -> void:
+	if _is_dead:
+		return
+	_animate()
+	if _player_ref != null:
+		if _player_ref.is_dead:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			return
+		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
+		var _distance: float = global_position.distance_to(_player_ref.global_position)
+		velocity = _direction * 100
+		move_and_slide()
+		
+		
+func _animate() -> void:
+	if velocity.x > 0:
+		_texture.flip_h = false
+		
+	if velocity.x < 0:
+		_texture.flip_h = true
+
+	if velocity != Vector2.ZERO:
+		_animation.play(\"walk\")
+		return
+		
+	_animation.play(\"stand\")
+func health() -> void:
+	_is_dead = true
+	_animation.play(\"death\")
+	
+func _on_animation_finished(_anim_name: String) -> void:
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
+size = Vector2(35, 35.5)
+
+[sub_resource type="Animation" id="Animation_hgy1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uas41")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1hjus"]
+resource_name = "hurt"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uas41")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fmadf"]
+resource_name = "stand"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uas41")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ctjo7"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_uas41")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uama8"]
+_data = {
+&"RESET": SubResource("Animation_hgy1b"),
+&"hurt": SubResource("Animation_1hjus"),
+&"stand": SubResource("Animation_fmadf"),
+&"walk": SubResource("Animation_ctjo7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
+radius = 202.35612
+
+[node name="Node2D" type="Node2D"]
+
+[node name="enimy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("_texture", "_animation") groups=["Enimy", "character", "enimy"]]
+script = SubResource("GDScript_ybwhg")
+_texture = NodePath("Sprite2D")
+_animation = NodePath("AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="enimy"]
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("2_uas41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enimy"]
+visible = false
+show_behind_parent = true
+shape = SubResource("RectangleShape2D_bjbex")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimy"]
+libraries = {
+&"": SubResource("AnimationLibrary_uama8")
+}
+autoplay = "walk"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_kramk")
