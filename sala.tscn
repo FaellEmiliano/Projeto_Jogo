@@ -1,42 +1,88 @@
-[gd_scene load_steps=4 format=4 uid="uid://b1j42d7a8wjtd"]
+[gd_scene load_steps=7 format=4 uid="uid://b1j42d7a8wjtd"]
 
+[ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://sala.gd" id="1_num3o"]
 [ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://icon.svg" id="1_qkma5"]
+[ext_resource type="PackedScene" uid="uid://d2yw5ewoqqtis" path="res://enimy.tscn" id="2_8p6ll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8p6ll"]
 texture = ExtResource("1_qkma5")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_num3o"]
 tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8p6ll")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p6ll"]
+size = Vector2(675, 681)
+
 [node name="Sala" type="Node2D"]
+script = ExtResource("1_num3o")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAADAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAP//AAAAAAAAAAADAP7/AAAAAAAAAAADAP3/AAAAAAAAAAACAP3/AAAAAAAAAAABAP3/AAAAAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wIAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_num3o")
 
-[node name="porta_leste" type="Node2D" parent="."]
+[node name="conexao_leste" type="Node2D" parent="."]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="porta_leste"]
+[node name="TileMapLayer" type="TileMapLayer" parent="conexao_leste"]
 tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_num3o")
 
-[node name="porta_oeste" type="Node2D" parent="."]
+[node name="conexao_oeste" type="Node2D" parent="."]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="porta_oeste"]
+[node name="TileMapLayer" type="TileMapLayer" parent="conexao_oeste"]
 tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_num3o")
 
-[node name="porta_sul" type="Node2D" parent="."]
+[node name="conexao_sul" type="Node2D" parent="."]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="porta_sul"]
+[node name="TileMapLayer" type="TileMapLayer" parent="conexao_sul"]
 tile_map_data = PackedByteArray("AAAAAAMAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_num3o")
 
-[node name="porta_norte" type="Node2D" parent="."]
+[node name="conexao_norte" type="Node2D" parent="."]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="porta_norte"]
+[node name="TileMapLayer" type="TileMapLayer" parent="conexao_norte"]
 tile_map_data = PackedByteArray("AAAAAP3/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_num3o")
+
+[node name="enimy" parent="." instance=ExtResource("2_8p6ll")]
+position = Vector2(-232, -238)
+
+[node name="Area_sala" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_sala"]
+position = Vector2(62.5, 64.5)
+shape = SubResource("RectangleShape2D_8p6ll")
+
+[node name="portas" type="Node2D" parent="."]
+
+[node name="porta_leste" type="Node2D" parent="portas"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="portas/porta_leste"]
+tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_num3o")
+
+[node name="porta_oeste" type="Node2D" parent="portas"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="portas/porta_oeste"]
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_num3o")
+
+[node name="porta_sul" type="Node2D" parent="portas"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="portas/porta_sul"]
+tile_map_data = PackedByteArray("AAAAAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_num3o")
+
+[node name="porta_norte" type="Node2D" parent="portas"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="portas/porta_norte"]
+tile_map_data = PackedByteArray("AAAAAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_num3o")
+
+[connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
+[connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]

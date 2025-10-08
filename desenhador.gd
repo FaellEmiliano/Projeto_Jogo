@@ -2,6 +2,7 @@ extends Node2D
 
 #globais
 @export var gerador_nó :NodePath
+@export var camera_node : NodePath
 var sala = load("res://sala.tscn")
 var sala_const = sala.instantiate()
 var pos_anterior := Vector2i(0,0)
@@ -43,6 +44,7 @@ func pegar_tamanho() -> Vector2i:
 func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 	var sala_inst = sala.instantiate()
 	sala_inst.position = pos * sala_const.get_node("TileMapLayer").tile_set.tile_size * offset
+	sala_inst.position = pos * sala_const.get_node("TileMapLayer").tile_set.tile_size * offset
 	add_child(sala_inst)
 	if flag:
 		get_parent().get_node("jogador").position = sala_inst.position
@@ -50,14 +52,13 @@ func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 	var vizinhos = pegar_vizinhos(pos)
 	for c in vizinhos:
 		if c == "N":
-			sala_inst.remove_child(sala_inst.get_node("porta_norte"))
+			sala_inst.remove_child(sala_inst.get_node("conexao_norte"))
 		if c == "S":
-			sala_inst.remove_child(sala_inst.get_node("porta_sul"))
+			sala_inst.remove_child(sala_inst.get_node("conexao_sul"))
 		if c == "L":
-			sala_inst.remove_child(sala_inst.get_node("porta_leste"))
+			sala_inst.remove_child(sala_inst.get_node("conexao_leste"))
 		if c == "O":
-			sala_inst.remove_child(sala_inst.get_node("porta_oeste"))
-
+			sala_inst.remove_child(sala_inst.get_node("conexao_oeste"))
 
 func _ready() -> void:
 	for x in mapa.size():
