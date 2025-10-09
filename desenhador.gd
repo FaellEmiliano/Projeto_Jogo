@@ -49,16 +49,8 @@ func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 	if flag:
 		get_parent().get_node("jogador").position = sala_inst.position
 	#Fecha portas
-	var vizinhos = pegar_vizinhos(pos)
-	for c in vizinhos:
-		if c == "N":
-			sala_inst.remove_child(sala_inst.get_node("conexao_norte"))
-		if c == "S":
-			sala_inst.remove_child(sala_inst.get_node("conexao_sul"))
-		if c == "L":
-			sala_inst.remove_child(sala_inst.get_node("conexao_leste"))
-		if c == "O":
-			sala_inst.remove_child(sala_inst.get_node("conexao_oeste"))
+	sala_inst.abrir_portas(pegar_vizinhos(pos))
+	
 
 func _ready() -> void:
 	for x in mapa.size():
