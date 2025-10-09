@@ -3,7 +3,7 @@ extends Node2D
 #globais
 @export var gerador_nó :NodePath
 @export var camera_node : NodePath
-var sala = load("res://sala.tscn")
+var sala = load("res://cenas/sala.tscn")
 var sala_const = sala.instantiate()
 var pos_anterior := Vector2i(0,0)
 var offset = pegar_tamanho()

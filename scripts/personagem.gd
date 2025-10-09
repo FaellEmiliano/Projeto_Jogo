@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export_range(0,10000,200) var speed:int = 400
 @export var veloc_tiro = 300
 @export var fire_rate :float = 0.5
-var tiro = load("res://tiro.tscn")
+var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
 var _state_machine

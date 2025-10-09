@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://b1j42d7a8wjtd"]
 
-[ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://sala.gd" id="1_num3o"]
+[ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://scripts/sala.gd" id="1_num3o"]
 [ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://icon.svg" id="1_qkma5"]
-[ext_resource type="PackedScene" uid="uid://d2yw5ewoqqtis" path="res://enimy.tscn" id="2_8p6ll"]
+[ext_resource type="PackedScene" uid="uid://d2yw5ewoqqtis" path="res://cenas/enimy.tscn" id="2_8p6ll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_num3o"]
 resource_name = "parede"
