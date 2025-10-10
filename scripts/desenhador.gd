@@ -47,7 +47,7 @@ func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 	sala_inst.position = pos * sala_const.get_node("TileMapLayer").tile_set.tile_size * offset
 	add_child(sala_inst)
 	if flag:
-		get_parent().get_node("jogador").position = sala_inst.position
+		get_parent().get_node("jogador").position = sala_inst.position + Vector2(580,327)
 	#Fecha portas
 	sala_inst.abrir_portas(pegar_vizinhos(pos))
 	

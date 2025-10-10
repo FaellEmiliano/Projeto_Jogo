@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://byqnwlovbxr01"]
+[gd_scene load_steps=5 format=3 uid="uid://byqnwlovbxr01"]
 
 [ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="1_1xe48"]
 [ext_resource type="Script" uid="uid://bbd7tbofyrmoy" path="res://scripts/desenhador.gd" id="2_yinxq"]
 [ext_resource type="PackedScene" uid="uid://bina8rvay5n5w" path="res://cenas/gerador_mapa.tscn" id="3_062f0"]
+[ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="4_yinxq"]
 
 [node name="Mundo" type="Node2D"]
 
@@ -12,16 +13,22 @@ scale = Vector2(2, 2)
 speed = 400
 fire_rate = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="jogador"]
-position = Vector2(3.5, -7)
-scale = Vector2(0.5, 0.5)
-rotation_smoothing_enabled = true
-
 [node name="Gerenciador_mapa" type="Node2D" parent="."]
 script = ExtResource("2_yinxq")
 "gerador_nó" = NodePath("Gerador_mapa")
-camera_node = NodePath("../jogador/Camera2D")
+camera_node = NodePath("../Camera2D")
 
 [node name="Gerador_mapa" parent="Gerenciador_mapa" instance=ExtResource("3_062f0")]
 position = Vector2(0, -3)
+Dimensoes = Vector2i(5, 5)
 "Tamanho_Mínimo" = 15
+metadata/_edit_pinned_properties_ = [&"Dimensoes", &"Tamanho_Mínimo"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(570, 337)
+scale = Vector2(2, 2)
+anchor_mode = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+script = ExtResource("4_yinxq")
