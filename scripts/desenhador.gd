@@ -8,7 +8,7 @@ var sala_const = sala.instantiate()
 var pos_anterior := Vector2i(0,0)
 var offset = pegar_tamanho()
 @onready var gerador = get_node(gerador_nó)
-@onready var mapa = gerador.gerar()
+@onready var mapa = gerador.Mapa
 
 func pegar_vizinhos(pos :Vector2i) -> Array:
 	var vizinhos = []
