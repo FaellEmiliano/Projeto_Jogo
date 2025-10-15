@@ -50,7 +50,7 @@ func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 		get_parent().get_node("jogador").position = sala_inst.position + Vector2(580,327)
 	#Fecha portas
 	sala_inst.abrir_portas(pegar_vizinhos(pos))
-	
+
 
 func _ready() -> void:
 	for x in mapa.size():
