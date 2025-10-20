@@ -3,12 +3,14 @@ extends Node2D
 #globais
 @export var gerador_nó :NodePath
 @export var camera_node : NodePath
+var jogador = load("res://cenas/Personagem.tscn")
 var sala = load("res://cenas/sala.tscn")
 var sala_const = sala.instantiate()
 var pos_anterior := Vector2i(0,0)
 var offset = pegar_tamanho()
 @onready var gerador = get_node(gerador_nó)
 @onready var mapa = gerador.Mapa
+@onready var jogador_inst = jogador.instantiate()
 
 func pegar_vizinhos(pos :Vector2i) -> Array:
 	var vizinhos = []
@@ -47,12 +49,13 @@ func posicionar_sala(pos :Vector2i, flag :bool) -> void:
 	sala_inst.position = pos * sala_const.get_node("TileMapLayer").tile_set.tile_size * offset
 	add_child(sala_inst)
 	if flag:
-		get_parent().get_node("jogador").position = sala_inst.position + Vector2(580,327)
+		jogador_inst.position = sala_inst.position + Vector2(486,292)
 	#Fecha portas
 	sala_inst.abrir_portas(pegar_vizinhos(pos))
 
 
 func _ready() -> void:
+	add_child(jogador_inst)
 	for x in mapa.size():
 		for y in mapa[x].size():
 			if mapa[x][y] == 0:
@@ -63,3 +66,4 @@ func _ready() -> void:
 			else:
 				posicionar_sala(Vector2i(x,y), 0)
 				pos_anterior = Vector2i(x,y)
+	

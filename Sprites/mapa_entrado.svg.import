@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6upiih3w3nb7"
-path="res://.godot/imported/porta.svg-2c4c2decd5fe4cbe5361f8fca79f9a82.ctex"
+uid="uid://da7ci33dsmq3p"
+path="res://.godot/imported/mapa_entrado.svg-404e978d8ae9e12042d5f11d547f2ffd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://porta.svg"
-dest_files=["res://.godot/imported/porta.svg-2c4c2decd5fe4cbe5361f8fca79f9a82.ctex"]
+source_file="res://Sprites/mapa_entrado.svg"
+dest_files=["res://.godot/imported/mapa_entrado.svg-404e978d8ae9e12042d5f11d547f2ffd.ctex"]
 
 [params]
 
