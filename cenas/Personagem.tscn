@@ -92,9 +92,7 @@ _data = {
 
 [node name="personagem" type="CharacterBody2D" groups=["character"]]
 script = ExtResource("1_u0opb")
-speed = null
 veloc_tiro = 1000
-fire_rate = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kbydu")

@@ -7,6 +7,7 @@ var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
 var _state_machine
+var upgrades :Array = [0,0,0] #Vida,Dano,Veloc
 
 func movimentacao():
 	var input_direction = Input.get_vector("mov_esquerda", "mov_direita", "mov_cima", "mov_baixo")

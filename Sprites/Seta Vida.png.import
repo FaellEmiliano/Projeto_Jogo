@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d32o6gybf4qvn"
-path="res://.godot/imported/Seta velocidadef.png-d6ce53208c34b04aadd7d63da5e4f1e0.ctex"
+uid="uid://cveasakobahy3"
+path="res://.godot/imported/Seta Vida.png-30300e6841cb74e180cf24f3f1d3bd86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cenas/Seta velocidadef.png"
-dest_files=["res://.godot/imported/Seta velocidadef.png-d6ce53208c34b04aadd7d63da5e4f1e0.ctex"]
+source_file="res://Sprites/Seta Vida.png"
+dest_files=["res://.godot/imported/Seta Vida.png-30300e6841cb74e180cf24f3f1d3bd86.ctex"]
 
 [params]
 
