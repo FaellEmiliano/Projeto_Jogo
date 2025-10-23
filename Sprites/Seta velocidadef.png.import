@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ox1d74vquh5d"
-path="res://.godot/imported/Parede (1).png-4523219c2d653fafd4cd6a4eda160e29.ctex"
+uid="uid://4er6pb1l52c3"
+path="res://.godot/imported/Seta velocidadef.png-70623b64c90fdfb5e018c9beea7fa20e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Parede (1).png"
-dest_files=["res://.godot/imported/Parede (1).png-4523219c2d653fafd4cd6a4eda160e29.ctex"]
+source_file="res://Sprites/Seta velocidadef.png"
+dest_files=["res://.godot/imported/Seta velocidadef.png-70623b64c90fdfb5e018c9beea7fa20e.ctex"]
 
 [params]
 

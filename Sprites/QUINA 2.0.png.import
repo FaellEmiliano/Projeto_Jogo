@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6upiih3w3nb7"
-path="res://.godot/imported/porta.svg-e7d57038b2d010b61eef146bf5f75aa0.ctex"
+uid="uid://cpaaoxytvapqs"
+path="res://.godot/imported/QUINA 2.0.png-50447fb907fab3bd85b3c8ae45216ede.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/porta.svg"
-dest_files=["res://.godot/imported/porta.svg-e7d57038b2d010b61eef146bf5f75aa0.ctex"]
+source_file="res://Sprites/QUINA 2.0.png"
+dest_files=["res://.godot/imported/QUINA 2.0.png-50447fb907fab3bd85b3c8ae45216ede.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

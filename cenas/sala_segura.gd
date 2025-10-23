@@ -39,6 +39,3 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	eventos.player_entrou.emit(self)
 	if body.is_in_group("character") and not player_entrou:
 		eventos.desenhar_mapa.emit(self)
-		fechar_portas(vizinhos_instanciados)
-		
-	

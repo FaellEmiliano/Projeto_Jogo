@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djrh8bd8xstsi"
-path="res://.godot/imported/Quina (1).png-93cd9223bf2f6a188c9b153e0e231b65.ctex"
+uid="uid://du2xwtybpl3ae"
+path="res://.godot/imported/animação da seta no piskel certa.png-4e47aafc964eb2bc063cfc7e702105f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Quina (1).png"
-dest_files=["res://.godot/imported/Quina (1).png-93cd9223bf2f6a188c9b153e0e231b65.ctex"]
+source_file="res://Sprites/animação da seta no piskel certa.png"
+dest_files=["res://.godot/imported/animação da seta no piskel certa.png-4e47aafc964eb2bc063cfc7e702105f6.ctex"]
 
 [params]
 

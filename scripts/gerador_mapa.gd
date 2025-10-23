@@ -3,8 +3,6 @@ extends Node2D
 #globais
 @export var Dimensoes :Vector2i = Vector2i(5,5)
 @export var Tamanho_Mínimo :int = 15
-@export var galhos :int = 3
-@export var tamanho_galhos :Vector2i = Vector2i(1,4)
 var Mapa :Array
 
 #setar o array em branco

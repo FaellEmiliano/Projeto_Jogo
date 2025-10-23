@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl1gyaw4dbod4"
-path="res://.godot/imported/porta nova 2.png-d002ff751d3d740b9a4cfa6d05925b36.ctex"
+uid="uid://c87xvjbbqyx8p"
+path="res://.godot/imported/Parede 1023.png-296482f1f629e6953d605c994cbde68a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/porta nova 2.png"
-dest_files=["res://.godot/imported/porta nova 2.png-d002ff751d3d740b9a4cfa6d05925b36.ctex"]
+source_file="res://Sprites/Parede 1023.png"
+dest_files=["res://.godot/imported/Parede 1023.png-296482f1f629e6953d605c994cbde68a.ctex"]
 
 [params]
 

@@ -34,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 			return
 		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
 		var _distance: float = global_position.distance_to(_player_ref.global_position)
-		velocity = _direction * 300
+		velocity = _direction * 200
 		move_and_slide()
 		
 		
@@ -238,7 +238,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
-radius = 202.35612
+radius = 591.00085
 
 [node name="enimy" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["Enimy", "enimy"]]
 script = SubResource("GDScript_ybwhg")

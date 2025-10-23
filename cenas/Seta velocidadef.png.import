@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://66bvh7p5utgd"
-path="res://.godot/imported/porta nova fechada.png-38aaf54ca77d2e495f9bc48d8d6622bd.ctex"
+uid="uid://d32o6gybf4qvn"
+path="res://.godot/imported/Seta velocidadef.png-d6ce53208c34b04aadd7d63da5e4f1e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/porta nova fechada.png"
-dest_files=["res://.godot/imported/porta nova fechada.png-38aaf54ca77d2e495f9bc48d8d6622bd.ctex"]
+source_file="res://cenas/Seta velocidadef.png"
+dest_files=["res://.godot/imported/Seta velocidadef.png-d6ce53208c34b04aadd7d63da5e4f1e0.ctex"]
 
 [params]
 

@@ -9,7 +9,7 @@ var posicao : Vector2i
 
 func pegar_pos(global_pos: Vector2i) -> Vector2i:
 
-	var divisor = gerenciador.sala_const.get_node("TileMapLayer").tile_set.tile_size * gerenciador.pegar_tamanho()
+	var divisor = gerenciador.sala_const.get_node("TSala").tile_set.tile_size * gerenciador.pegar_tamanho()
 	if divisor.x == 0 or divisor.y == 0:
 		push_warning("tile_size ou offset tem valor zero!")
 		return Vector2i.ZERO
