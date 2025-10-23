@@ -70,3 +70,7 @@ func gerar():
 		sucesso = g_caminho(g_inicio(), Tamanho_Mínimo)
 	imprimir_mapa()
 	return Mapa
+
+
+func _ready() -> void:
+	Mapa = gerar()

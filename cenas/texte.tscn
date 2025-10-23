@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="1_jbde0"]
 [ext_resource type="Script" uid="uid://bd2fq52wkgses" path="res://scripts/personagem.gd" id="2_i7d5w"]
-[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://icon.svg" id="3_2tq47"]
+[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://Sprites/icon.svg" id="3_2tq47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfm7r"]
 size = Vector2(40, 39)

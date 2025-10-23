@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bbkvwvo0xtobn"]
 
 [ext_resource type="Script" uid="uid://bd2fq52wkgses" path="res://scripts/personagem.gd" id="1_u0opb"]
-[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://icon.svg" id="2_y0rq2"]
+[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://Sprites/icon.svg" id="2_y0rq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbydu"]
 
@@ -92,9 +92,7 @@ _data = {
 
 [node name="personagem" type="CharacterBody2D" groups=["character"]]
 script = ExtResource("1_u0opb")
-speed = null
 veloc_tiro = 1000
-fire_rate = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kbydu")

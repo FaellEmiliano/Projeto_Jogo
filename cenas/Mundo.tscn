@@ -1,17 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://byqnwlovbxr01"]
+[gd_scene load_steps=11 format=3 uid="uid://byqnwlovbxr01"]
 
-[ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="1_1xe48"]
 [ext_resource type="Script" uid="uid://bbd7tbofyrmoy" path="res://scripts/desenhador.gd" id="2_yinxq"]
 [ext_resource type="PackedScene" uid="uid://bina8rvay5n5w" path="res://cenas/gerador_mapa.tscn" id="3_062f0"]
 [ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="4_yinxq"]
+[ext_resource type="Script" uid="uid://b63vjw7l2mvix" path="res://scripts/minimapa.gd" id="5_062f0"]
+[ext_resource type="Script" uid="uid://ck42iurc8o22x" path="res://scripts/tile_miniatura.gd" id="6_ioc5r"]
+[ext_resource type="Texture2D" uid="uid://c234jcoovblt" path="res://Sprites/mapa_visitado.svg" id="6_yi0lg"]
+[ext_resource type="Texture2D" uid="uid://da7ci33dsmq3p" path="res://Sprites/mapa_entrado.svg" id="7_bj1bn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cshp5"]
+texture = ExtResource("6_yi0lg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ca625"]
+texture = ExtResource("7_bj1bn")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yi0lg"]
+tile_size = Vector2i(128, 128)
+sources/1 = SubResource("TileSetAtlasSource_cshp5")
+sources/2 = SubResource("TileSetAtlasSource_ca625")
 
 [node name="Mundo" type="Node2D"]
-
-[node name="jogador" parent="." instance=ExtResource("1_1xe48")]
-position = Vector2(570, 337)
-scale = Vector2(2, 2)
-speed = 400
-fire_rate = 0.5
 
 [node name="Gerenciador_mapa" type="Node2D" parent="."]
 script = ExtResource("2_yinxq")
@@ -25,10 +37,36 @@ Dimensoes = Vector2i(5, 5)
 metadata/_edit_pinned_properties_ = [&"Dimensoes", &"Tamanho_Mínimo"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(570, 337)
 scale = Vector2(2, 2)
 anchor_mode = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 script = ExtResource("4_yinxq")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 101.0
+grow_horizontal = 0
+
+[node name="SubViewport" type="SubViewport" parent="UI/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+script = ExtResource("5_062f0")
+
+[node name="Camera2D" type="Camera2D" parent="UI/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.2, 0.2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="UI/SubViewportContainer/SubViewport"]
+tile_set = SubResource("TileSet_yi0lg")
+script = ExtResource("6_ioc5r")
+"gerador_nó" = NodePath("../../../../Gerenciador_mapa/Gerador_mapa")

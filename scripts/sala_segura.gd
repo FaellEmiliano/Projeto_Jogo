@@ -2,8 +2,12 @@ extends Node2D
 var player_entrou :bool = false
 var inimigos :int
 @onready var tilemap = $TSala
+@onready var setas = $Setas.get_children()
 var vizinhos_instanciados :Array
 
+func _ready():
+	for s in setas:
+		s.seta_ativada.connect(_on_seta_ativada)
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enimy"):
@@ -39,6 +43,7 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	eventos.player_entrou.emit(self)
 	if body.is_in_group("character") and not player_entrou:
 		eventos.desenhar_mapa.emit(self)
-		fechar_portas(vizinhos_instanciados)
 		
-	
+func _on_seta_ativada(_seta_acionada):
+	for s in setas:
+		s.queue_free()
