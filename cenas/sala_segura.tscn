@@ -127,7 +127,7 @@ tile_map_data = PackedByteArray("AAABAAIAAgAAAAEAAAABAAMAAgAAAAEAAAABAAQAAgAAAAE
 tile_set = SubResource("TileSet_d4nyj")
 
 [node name="TPedestal" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAHAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_8e3d1")
 
 [node name="Area_sala" type="Area2D" parent="."]
@@ -169,13 +169,13 @@ position = Vector2(257, -6)
 [node name="Setas" type="Node2D" parent="."]
 
 [node name="Upgrade_Vida" parent="Setas" instance=ExtResource("10_7mumf")]
-position = Vector2(481, 170)
+position = Vector2(480, 241)
 
 [node name="Upgrade_Dano" parent="Setas" instance=ExtResource("12_8e3d1")]
-position = Vector2(353, 239)
+position = Vector2(417, 239)
 
 [node name="Upgrade_Veloc" parent="Setas" instance=ExtResource("13_n2bhx")]
-position = Vector2(609, 241)
+position = Vector2(546, 240)
 
 [connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
 [connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export_range(0,10000,200) var speed:int = 400
+@export var speed:int = 300
 @export var veloc_tiro = 300
 @export var fire_rate :float = 0.5
 var tiro = load("res://cenas/tiro.tscn")
@@ -8,6 +8,8 @@ var timer :float = 0.0
 var is_dead: bool = false
 var _state_machine
 var upgrades :Array = [0,0,0] #Vida,Dano,Veloc
+var vida_max = 100
+@onready var vida = vida_max
 
 func movimentacao():
 	var input_direction = Input.get_vector("mov_esquerda", "mov_direita", "mov_cima", "mov_baixo")
@@ -32,7 +34,10 @@ func atirar():
 		timer = fire_rate
 	
 
-
+func tomar_dano(dano :float):
+	vida -= dano
+	if vida <= 0:
+		die()
 
 func _physics_process(delta):
 	if is_dead:
@@ -43,7 +48,11 @@ func _physics_process(delta):
 	rotation += PI/2
 	atirar()
 	move_and_slide()
+	if vida < vida_max:
+		vida += 1 *delta
 
+func atualizar():
+	vida_max += vida_max/10 * upgrades[0]
 
 func die() -> void:
 	is_dead = true

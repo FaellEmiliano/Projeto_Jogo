@@ -17,5 +17,4 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	print(_body.upgrades)
 	if _body.is_in_group("character"):
 		seta_ativada.emit(self)
-	#for seta in get_tree().get_nodes_in_group("upgrade"):
-		#seta.queue_free()
+	_body.atualizar()

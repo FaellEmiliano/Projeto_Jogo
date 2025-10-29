@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbkvwvo0xtobn"]
+[gd_scene load_steps=11 format=3 uid="uid://bbkvwvo0xtobn"]
 
 [ext_resource type="Script" uid="uid://bd2fq52wkgses" path="res://scripts/personagem.gd" id="1_u0opb"]
 [ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://Sprites/icon.svg" id="2_y0rq2"]
+[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="3_iqg26"]
+[ext_resource type="Texture2D" uid="uid://r8bxvei2sf1u" path="res://Sprites/Barra_de_vida.png" id="4_lu1ij"]
+[ext_resource type="Script" uid="uid://dsgvnoi1segrr" path="res://scripts/barra_vida.gd" id="5_wtbp0"]
+[ext_resource type="Script" uid="uid://cug8euy3p2xss" path="res://scripts/label.gd" id="6_lu1ij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbydu"]
 
@@ -105,3 +109,28 @@ texture = ExtResource("2_y0rq2")
 libraries = {
 &"": SubResource("AnimationLibrary_haeww")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -41.0
+offset_right = 253.0
+offset_bottom = -1.0
+grow_vertical = 0
+value = 20.0
+texture_under = ExtResource("3_iqg26")
+texture_progress = ExtResource("4_lu1ij")
+script = ExtResource("5_wtbp0")
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = -24.0
+offset_right = 157.0
+offset_bottom = -1.0
+text = "100/100"
+script = ExtResource("6_lu1ij")
