@@ -71,7 +71,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
-size = Vector2(38.92857, 39.17857)
+size = Vector2(34.28572, 32.85715)
 
 [sub_resource type="Animation" id="Animation_hgy1b"]
 length = 0.001
@@ -254,14 +254,17 @@ _animation = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
+position = Vector2(-1.2772422e-06, -1.3623917e-06)
+scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 show_behind_parent = true
-position = Vector2(1.9642845, 1.8392847)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-8.9406956e-07, 0.71428573)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
