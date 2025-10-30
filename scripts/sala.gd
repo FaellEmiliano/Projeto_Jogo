@@ -3,11 +3,7 @@ var player_entrou :bool = false
 var inimigos :int
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
-@onready var _spawner=$"spawn inimigos"
-var _s_inimigos:Array
 
-func _ready() -> void:
-	_spawner.inimigos=_s_inimigos
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enimy"):
@@ -15,7 +11,6 @@ func _on_area_sala_body_exited(body: Node2D) -> void:
 		if inimigos <=0:
 			abrir_portas(vizinhos_instanciados)
 			player_entrou = 1
-			print(_s_inimigos)
 
 func fechar_portas(vizinhos:Array):
 	for c in vizinhos:
