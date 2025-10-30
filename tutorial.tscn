@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://n67jw0kj34ia"]
+
+[ext_resource type="PackedScene" uid="uid://b1j42d7a8wjtd" path="res://cenas/sala.tscn" id="1_ehuit"]
+[ext_resource type="Script" uid="uid://yckgnnjar2sp" path="res://tutorial.gd" id="1_rwowx"]
+[ext_resource type="PackedScene" uid="uid://djgbngd34kdn3" path="res://cenas/sala_tutorial.tscn" id="2_4t6hg"]
+[ext_resource type="PackedScene" uid="uid://b52c44um4da6e" path="res://cenas/sala_segura.tscn" id="2_5mrt3"]
+[ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="3_rwowx"]
+[ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="4_5mrt3"]
+[ext_resource type="PackedScene" uid="uid://byuha4l114xwp" path="res://cenas/indicacoes.tscn" id="7_0cr88"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rwowx")
+
+[node name="Sala_tutorial" parent="." instance=ExtResource("2_4t6hg")]
+
+[node name="CharacterBody2D" parent="Sala_tutorial" groups=["indicacoes"] instance=ExtResource("7_0cr88")]
+position = Vector2(250, 286)
+
+[node name="Sala2" parent="." instance=ExtResource("1_ehuit")]
+position = Vector2(0, -576)
+
+[node name="Sala_Segura" parent="." instance=ExtResource("2_5mrt3")]
+position = Vector2(0, -1152)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(2, 2)
+anchor_mode = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+script = ExtResource("3_rwowx")
+
+[node name="personagem" parent="." instance=ExtResource("4_5mrt3")]
+position = Vector2(464, 276)
