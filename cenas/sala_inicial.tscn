@@ -1,0 +1,155 @@
+[gd_scene load_steps=19 format=4 uid="uid://kw14mu1jn15d"]
+
+[ext_resource type="Script" uid="uid://cx0rwo6i4ya01" path="res://scripts/sala_inicial.gd" id="1_w2l3g"]
+[ext_resource type="Texture2D" uid="uid://bk711td10o3tk" path="res://Sprites/chãoSpriteSheet.png" id="2_ns6gp"]
+[ext_resource type="Texture2D" uid="uid://cpaaoxytvapqs" path="res://Sprites/QUINA 2.0.png" id="3_736gy"]
+[ext_resource type="Texture2D" uid="uid://c87xvjbbqyx8p" path="res://Sprites/Parede 1023.png" id="4_xgq28"]
+[ext_resource type="Texture2D" uid="uid://bdwu2darhoh2d" path="res://Sprites/Porta aberta 2.png" id="5_7epfi"]
+[ext_resource type="Texture2D" uid="uid://bltcs13dp18hx" path="res://Sprites/Porta fechada 2.png" id="6_4uv1n"]
+[ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="7_31noo"]
+[ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_6q2jh"]
+[ext_resource type="Script" uid="uid://cqdtb7278537i" path="res://scripts/mensagem.gd" id="9_ns6gp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jcbu"]
+texture = ExtResource("2_ns6gp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/z_index = -100
+1:0/0 = 0
+1:0/0/z_index = -100
+0:1/0 = 0
+0:1/0/z_index = -100
+1:1/0 = 0
+1:1/0/z_index = -100
+0:2/0 = 0
+0:2/0/z_index = -100
+1:2/0 = 0
+1:2/0/z_index = -100
+0:3/0 = 0
+0:3/0/z_index = -100
+1:3/0 = 0
+1:3/0/z_index = -100
+0:4/0 = 0
+0:4/0/z_index = -100
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs2om"]
+texture = ExtResource("3_736gy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk4am"]
+texture = ExtResource("4_xgq28")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pev0"]
+texture = ExtResource("5_7epfi")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u06rq"]
+texture = ExtResource("6_4uv1n")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwr2a"]
+texture = ExtResource("7_31noo")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d4nyj"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/9 = SubResource("TileSetAtlasSource_vwr2a")
+sources/2 = SubResource("TileSetAtlasSource_uk4am")
+sources/11 = SubResource("TileSetAtlasSource_xs2om")
+sources/6 = SubResource("TileSetAtlasSource_u06rq")
+sources/5 = SubResource("TileSetAtlasSource_6pev0")
+sources/0 = SubResource("TileSetAtlasSource_7jcbu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p6ll"]
+size = Vector2(704, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2l3g"]
+size = Vector2(329.5, 191)
+
+[node name="Sala_inicial" type="Node2D"]
+script = ExtResource("1_w2l3g")
+
+[node name="TSala" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAIAAgAAAAEAAAABAAMAAgAAAAEAAAABAAQAAgAAAAEAAAABAAUAAgAAAAEAAAABAAYAAgAAAAEAAAACAAEAAgAAAAAAAAACAAcAAgAAAAIAAAADAAEAAgAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAcAAgAAAAIAAAAEAAEAAgAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAcAAgAAAAIAAAAFAAEAAgAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAcAAgAAAAIAAAAGAAEAAgAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAcAAgAAAAIAAAAHAAEAAgAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAcAAgAAAAIAAAAIAAEAAgAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAcAAgAAAAIAAAAJAAEAAgAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAcAAgAAAAIAAAAKAAEAAgAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAcAAgAAAAIAAAALAAEAAgAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAcAAgAAAAIAAAAMAAEAAgAAAAAAAAAMAAcAAgAAAAIAAAANAAIAAgAAAAMAAAANAAMAAgAAAAMAAAANAAQAAgAAAAMAAAANAAUAAgAAAAMAAAANAAYAAgAAAAMAAAAOAAEACQAAAAAAAAAOAAAACQAAAAAAAAANAAAACQAAAAAAAAAMAAAACQAAAAAAAAALAAAACQAAAAAAAAAKAAAACQAAAAAAAAAJAAAACQAAAAAAAAAIAAAACQAAAAAAAAAHAAAACQAAAAAAAAAGAAAACQAAAAAAAAAFAAAACQAAAAAAAAAEAAAACQAAAAAAAAADAAAACQAAAAAAAAACAAAACQAAAAAAAAABAAAACQAAAAAAAAAAAAAACQAAAAAAAAAAAAEACQAAAAAAAAAAAAIACQAAAAAAAAAAAAMACQAAAAAAAAAAAAQACQAAAAAAAAAAAAUACQAAAAAAAAAAAAYACQAAAAAAAAAAAAcACQAAAAAAAAAAAAgACQAAAAAAAAABAAgACQAAAAAAAAACAAgACQAAAAAAAAADAAgACQAAAAAAAAAEAAgACQAAAAAAAAAFAAgACQAAAAAAAAAGAAgACQAAAAAAAAAHAAgACQAAAAAAAAAIAAgACQAAAAAAAAAJAAgACQAAAAAAAAAKAAgACQAAAAAAAAALAAgACQAAAAAAAAAMAAgACQAAAAAAAAANAAgACQAAAAAAAAAOAAcACQAAAAAAAAAOAAYACQAAAAAAAAAOAAUACQAAAAAAAAAOAAQACQAAAAAAAAAOAAMACQAAAAAAAAAOAAIACQAAAAAAAAAOAAgACQAAAAAAAAABAAEACwAAAAAAAAABAAcACwAAAAEAAAANAAcACwAAAAIAAAANAAEACwAAAAMAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAAMAAYAAAABAAIAAAAMAAUAAAABAAAAAAAMAAQAAAABAAAAAAAMAAMAAAABAAAAAAACAAIAAAAAAAMAAAALAAIAAAAAAAEAAAAKAAIAAAAAAAEAAAAJAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAADAAIAAAAAAAEAAAACAAYAAAABAAMAAAAMAAIAAAAAAAQAAAALAAYAAAAAAAIAAAAKAAYAAAAAAAIAAAAJAAYAAAAAAAIAAAAIAAYAAAAAAAIAAAAHAAYAAAAAAAIAAAAGAAYAAAAAAAIAAAAFAAYAAAAAAAIAAAAEAAYAAAAAAAIAAAADAAYAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_d4nyj")
+
+[node name="Area_sala" type="Area2D" parent="."]
+visible = false
+position = Vector2(-5, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_sala"]
+position = Vector2(486, 292)
+shape = SubResource("RectangleShape2D_8p6ll")
+
+[node name="porta_oeste" parent="." instance=ExtResource("8_6q2jh")]
+visible = false
+position = Vector2(86, 290)
+
+[node name="Marker2D" type="Marker2D" parent="porta_oeste"]
+position = Vector2(-269, 0)
+
+[node name="porta_norte" parent="." instance=ExtResource("8_6q2jh")]
+visible = false
+position = Vector2(479, 84)
+
+[node name="Marker2D" type="Marker2D" parent="porta_norte"]
+position = Vector2(1, -252)
+
+[node name="porta_sul" parent="." instance=ExtResource("8_6q2jh")]
+visible = false
+position = Vector2(487, 492)
+
+[node name="Marker2D" type="Marker2D" parent="porta_sul"]
+position = Vector2(-2, 251)
+
+[node name="porta_leste" parent="." instance=ExtResource("8_6q2jh")]
+visible = false
+position = Vector2(876, 283)
+
+[node name="Marker2D" type="Marker2D" parent="porta_leste"]
+position = Vector2(257, -6)
+
+[node name="mensagem" type="Node2D" parent="."]
+position = Vector2(465, 388)
+script = ExtResource("9_ns6gp")
+
+[node name="Area2D" type="Area2D" parent="mensagem"]
+position = Vector2(8, -215)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mensagem/Area2D"]
+position = Vector2(-1, 130)
+shape = SubResource("RectangleShape2D_w2l3g")
+
+[connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
+[connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]

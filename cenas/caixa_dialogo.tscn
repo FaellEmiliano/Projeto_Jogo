@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dct2m7uekg5dw"]
+
+[ext_resource type="Script" uid="uid://b563g8gouybur" path="res://scripts/caixa_dialogo.gd" id="1_5kkc3"]
+[ext_resource type="Texture2D" uid="uid://bacxnou2adsnn" path="res://Sprites/Dialog_Box(16 x 16).png" id="1_yg6dk"]
+[ext_resource type="FontFile" uid="uid://6i0y2ob5cbrc" path="res://Sprites/RevMiniPixel.ttf" id="2_5kkc3"]
+
+[node name="caixa_dialogo" type="MarginContainer"]
+offset_right = 326.0
+offset_bottom = 29.0
+script = ExtResource("1_5kkc3")
+
+[node name="caixa" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_yg6dk")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="texto" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5kkc3")
+theme_override_font_sizes/font_size = 16
+
+[node name="delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="delay" to="." method="_on_delay_timeout"]

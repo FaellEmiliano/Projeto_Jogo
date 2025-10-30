@@ -6,6 +6,7 @@ extends Node2D
 var jogador = load("res://cenas/Personagem.tscn")
 var sala = load("res://cenas/sala.tscn")
 var sala_segura = load("res://cenas/sala_segura.tscn")
+var sala_inicial = load("res://cenas/sala_inicial.tscn")
 var sala_const = sala.instantiate()
 var pos_anterior := Vector2i(0,0)
 var offset = pegar_tamanho()
@@ -48,6 +49,9 @@ func posicionar_sala(pos :Vector2i, flag :int) -> void:
 	var sala_inst
 	if flag == 2:
 		sala_inst = sala_segura.instantiate()
+	elif flag == 1:
+		sala_inst = sala_inicial.instantiate()
+	
 	else:
 		sala_inst = sala.instantiate()
 	sala_inst.position = pos * sala_const.get_node("TSala").tile_set.tile_size * offset

@@ -19,6 +19,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 eventos="*res://scripts/eventos.gd"
+GerenciadorDialogo="*res://scripts/gerenciador_dialogo.gd"
 
 [display]
 
