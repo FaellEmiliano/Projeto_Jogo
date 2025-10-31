@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byqnwlovbxr01"]
+[gd_scene load_steps=13 format=3 uid="uid://byqnwlovbxr01"]
 
 [ext_resource type="Script" uid="uid://bbd7tbofyrmoy" path="res://scripts/desenhador.gd" id="2_yinxq"]
 [ext_resource type="PackedScene" uid="uid://bina8rvay5n5w" path="res://cenas/gerador_mapa.tscn" id="3_062f0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://del7frv15uvdx" path="res://Sprites/mapa_entrado.png" id="6_2a2k6"]
 [ext_resource type="Script" uid="uid://ck42iurc8o22x" path="res://scripts/tile_miniatura.gd" id="6_ioc5r"]
 [ext_resource type="Texture2D" uid="uid://dtrxdhncjtofo" path="res://Sprites/Minimapa.png" id="8_yi0lg"]
+[ext_resource type="PackedScene" uid="uid://c4d6wabt26rto" path="res://cenas/menu_btn.tscn" id="9_bj1bn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bj1bn"]
 texture = ExtResource("5_2a2k6")
@@ -44,6 +45,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
 script = ExtResource("4_yinxq")
+
+[node name="menu_btn" parent="Camera2D" instance=ExtResource("9_bj1bn")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 

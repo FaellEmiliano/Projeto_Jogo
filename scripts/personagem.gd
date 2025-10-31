@@ -58,5 +58,5 @@ func die() -> void:
 	is_dead = true
 	if _state_machine:
 		_state_machine.travel("death")
-		await get_tree().create_timer(1.0).timeout
-		get_tree().reload_current_scene()
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://cenas/tela_morte.tscn")
