@@ -18,12 +18,11 @@ var _player_ref  = null
 func _on_detection_area_body_entered(_body) -> void:
 	if _body.is_in_group(\"character\"):
 		_player_ref = _body
-		
-		
+
 func _on_detection_area_body_exited(_body) -> void:
 	if _body.is_in_group(\"character\"):
 		_player_ref = null
-		
+
 func _physics_process(_delta: float) -> void:
 	if _is_dead:
 		return
@@ -37,8 +36,7 @@ func _physics_process(_delta: float) -> void:
 		var _distance: float = global_position.distance_to(_player_ref.global_position)
 		velocity = _direction * 100
 		move_and_slide()
-		
-		
+
 func _animate() -> void:
 	if velocity.x > 0:
 		_texture.flip_h = false
@@ -63,7 +61,6 @@ func tomar_dano(Dano:int)-> void:
 	vida -= Dano
 	if vida <= 0:
 		morte()
-
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"character\"):

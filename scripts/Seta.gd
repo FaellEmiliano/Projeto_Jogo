@@ -20,14 +20,16 @@ func _process(_delta: float) -> void:
 		if self.name == "Upgrade_Vida":
 			print("vida")
 			player_ref.upgrades[0] += 1
+			player_ref.atualizar(1)
 		elif self.name == "Upgrade_Dano":
 			print("dano")
 			player_ref.upgrades[1] += 1
+			player_ref.atualizar(2)
 		elif self.name == "Upgrade_Veloc":
 			print("velocidade")
 			player_ref.upgrades[2] += 1 
+			player_ref.atualizar(0)
 		
 		print(player_ref.upgrades)
-		player_ref.atualizar()
 		seta_ativada.emit(self)
 		queue_free()

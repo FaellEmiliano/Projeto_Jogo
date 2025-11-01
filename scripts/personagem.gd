@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var veloc_tiro = 300
 @export var fire_rate :float = 0.5
 @export var regen = 1
+@export var dano = 500
 var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
@@ -28,6 +29,7 @@ func atirar():
 		var instancia_tiro = tiro.instantiate()
 		var mouse_pos = get_global_mouse_position()
 		var direcao = (mouse_pos - global_position).normalized()
+		instancia_tiro.Dano = dano
 		instancia_tiro.global_position = global_position + direcao * 64
 		instancia_tiro.rotation = direcao.angle()
 		instancia_tiro.direcao = direcao
@@ -52,9 +54,13 @@ func _physics_process(delta):
 	if vida < vida_max:
 		vida += regen *delta
 
-func atualizar():
-	vida_max += vida_max/10 * upgrades[0]
-	regen += upgrades[0] * 2
+func atualizar(flag :int):
+	if flag == 1:
+		vida_max += vida_max/10 * upgrades[0]
+		regen += upgrades[0] * 2
+	elif flag == 2:
+		dano += 500
+		
 
 func die() -> void:
 	is_dead = true

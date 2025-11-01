@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://byqnwlovbxr01"]
+[gd_scene load_steps=14 format=3 uid="uid://byqnwlovbxr01"]
 
+[ext_resource type="Script" uid="uid://ctl4dxk37i4lf" path="res://scripts/mundo.gd" id="1_cshp5"]
 [ext_resource type="Script" uid="uid://bbd7tbofyrmoy" path="res://scripts/desenhador.gd" id="2_yinxq"]
 [ext_resource type="PackedScene" uid="uid://bina8rvay5n5w" path="res://cenas/gerador_mapa.tscn" id="3_062f0"]
 [ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="4_yinxq"]
@@ -26,6 +27,7 @@ sources/2 = SubResource("TileSetAtlasSource_yi0lg")
 sources/1 = SubResource("TileSetAtlasSource_bj1bn")
 
 [node name="Mundo" type="Node2D"]
+script = ExtResource("1_cshp5")
 
 [node name="Gerenciador_mapa" type="Node2D" parent="."]
 script = ExtResource("2_yinxq")
