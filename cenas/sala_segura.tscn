@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b52c44um4da6e"]
+[gd_scene load_steps=25 format=4 uid="uid://b52c44um4da6e"]
 
 [ext_resource type="Script" uid="uid://b36civvi6l864" path="res://scripts/sala_segura.gd" id="1_lto0e"]
 [ext_resource type="Texture2D" uid="uid://cpaaoxytvapqs" path="res://Sprites/QUINA 2.0.png" id="2_7mumf"]
@@ -11,12 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_x5fpn"]
 [ext_resource type="PackedScene" uid="uid://chgvbvjob0bj1" path="res://cenas/upgrade_vida.tscn" id="10_7mumf"]
 [ext_resource type="PackedScene" uid="uid://cb2fwggnj2f88" path="res://cenas/upgrade_dano.tscn" id="12_8e3d1"]
+[ext_resource type="FontFile" uid="uid://6i0y2ob5cbrc" path="res://Sprites/RevMiniPixel.ttf" id="13_45bvk"]
 [ext_resource type="PackedScene" uid="uid://c24oa470hnk0k" path="res://cenas/upgrade_veloc.tscn" id="13_n2bhx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mumf"]
 texture = ExtResource("2_lto0e")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/z_index = 10
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n2bhx"]
 texture = ExtResource("3_8e3d1")
@@ -96,6 +98,7 @@ sources/1 = SubResource("TileSetAtlasSource_n2bhx")
 texture = ExtResource("2_lto0e")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/z_index = -1
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -176,6 +179,15 @@ position = Vector2(417, 239)
 
 [node name="Upgrade_Veloc" parent="Setas" instance=ExtResource("13_n2bhx")]
 position = Vector2(546, 240)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 325.0
+offset_right = 622.0
+offset_bottom = 341.0
+theme_override_fonts/font = ExtResource("13_45bvk")
+theme_override_font_sizes/font_size = 16
+text = "Aperte \"E\" para pegar um upgrade"
 
 [connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
 [connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]

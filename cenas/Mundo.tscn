@@ -47,6 +47,8 @@ rotation_smoothing_enabled = true
 script = ExtResource("4_yinxq")
 
 [node name="menu_btn" parent="Camera2D" instance=ExtResource("9_bj1bn")]
+offset_right = 72.0
+offset_bottom = 72.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c4d6wabt26rto"]
 
 [ext_resource type="Script" uid="uid://wvgyklodskb1" path="res://menu_btn.gd" id="1_5lns3"]
-[ext_resource type="Texture2D" uid="uid://d32o6gybf4qvn" path="res://Sprites/Seta velocidadef.png" id="1_nkses"]
+[ext_resource type="Texture2D" uid="uid://cyhwt00wjqti1" path="res://Sprites/Botão pause.png" id="1_nkses"]
 [ext_resource type="Script" uid="uid://j7osb1q3l4cq" path="res://scripts/menu.gd" id="2_nkses"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkses"]
@@ -32,6 +32,7 @@ process_mode = 3
 anchors_preset = -1
 anchor_right = 0.075
 anchor_bottom = 0.125
+scale = Vector2(0.5, 0.5)
 icon = ExtResource("1_nkses")
 script = ExtResource("1_5lns3")
 

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed:int = 300
 @export var veloc_tiro = 300
 @export var fire_rate :float = 0.5
+@export var regen = 1
 var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
@@ -49,10 +50,11 @@ func _physics_process(delta):
 	atirar()
 	move_and_slide()
 	if vida < vida_max:
-		vida += 1 *delta
+		vida += regen *delta
 
 func atualizar():
 	vida_max += vida_max/10 * upgrades[0]
+	regen += upgrades[0] * 2
 
 func die() -> void:
 	is_dead = true

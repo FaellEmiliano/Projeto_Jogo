@@ -12,7 +12,7 @@ func _unhandled_input(event):
 		resume_button.grab_focus()
 
 func _on_quit_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().quit()
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false

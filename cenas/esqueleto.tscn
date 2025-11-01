@@ -16,8 +16,8 @@ var _player_ref  = null
 @export var dano :int = 30
 var tiro = load(\"res://cenas/tiro.tscn\")
 var timer :float = 0.0
-@export var fire_rate :float = 0.5
-@export var veloc_tiro = 300
+@export var fire_rate :float = 1
+@export var veloc_tiro = 250
 
 func _on_detection_area_body_entered(_body) -> void:
 	if _body.is_in_group(\"character\"):
@@ -47,7 +47,6 @@ func _physics_process(delta: float) -> void:
 			atirar(_direction)
 		
 func atirar(direcao : Vector2):
-	print(timer)
 	if timer <= 0:
 		var instancia_tiro = tiro.instantiate()
 		instancia_tiro.global_position = global_position + direcao * 64
@@ -56,7 +55,6 @@ func atirar(direcao : Vector2):
 		instancia_tiro.veloc = veloc_tiro
 		instancia_tiro.Dano = dano
 		get_tree().current_scene.add_child(instancia_tiro)
-		print(\"tiro!\")
 		timer = fire_rate
 
 

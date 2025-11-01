@@ -8,16 +8,20 @@
 [ext_resource type="Script" uid="uid://cug8euy3p2xss" path="res://scripts/label.gd" id="6_lu1ij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbydu"]
+size = Vector2(38.823524, 77.64705)
 
 [node name="personagem" type="CharacterBody2D" groups=["character"]]
-scale = Vector2(0.85, 0.85)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_u0opb")
 veloc_tiro = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.941179, -3.5294156)
+scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_kbydu")
 
 [node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-1.5258789e-05, -9.536743e-07)
 scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_lu1ij")
 
