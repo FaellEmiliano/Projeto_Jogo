@@ -65,6 +65,10 @@ func tomar_dano(Dano:int)-> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"character\"):
 		body.tomar_dano(dano)
+
+func atualizar(multi):
+	dano += dano * multi
+	vida += vida * multi
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
