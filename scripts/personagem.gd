@@ -23,11 +23,13 @@ func movimentacao():
 	#_state_machine= $StateMachine
 
 func atirar():
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and timer<=0:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and timer <= 0:
 		var instancia_tiro = tiro.instantiate()
-		instancia_tiro.global_position = global_position + Vector2(0,-64).rotated(rotation)
-		instancia_tiro.rotation = rotation
-		instancia_tiro.direcao = Vector2.UP.rotated(rotation)
+		var mouse_pos = get_global_mouse_position()
+		var direcao = (mouse_pos - global_position).normalized()
+		instancia_tiro.global_position = global_position + direcao * 64
+		instancia_tiro.rotation = direcao.angle()
+		instancia_tiro.direcao = direcao
 		instancia_tiro.veloc = veloc_tiro
 		get_parent().add_child(instancia_tiro)
 		print("tiro!")
@@ -44,8 +46,6 @@ func _physics_process(delta):
 		return
 	timer -= delta
 	movimentacao()
-	look_at(get_global_mouse_position())
-	rotation += PI/2
 	atirar()
 	move_and_slide()
 	if vida < vida_max:
