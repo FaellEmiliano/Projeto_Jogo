@@ -1,17 +1,17 @@
-[gd_scene load_steps=18 format=4 uid="uid://uh7ai5i5l5og"]
+[gd_scene load_steps=18 format=4 uid="uid://cgwxw4e1gvsse"]
 
-[ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://scripts/sala.gd" id="1_cpdr5"]
-[ext_resource type="Texture2D" uid="uid://bsbsbd31jv8bg" path="res://Sprites/Mundo 2/Parede.png" id="2_cpdr5"]
-[ext_resource type="Texture2D" uid="uid://bk711td10o3tk" path="res://Sprites/chãoSpriteSheet.png" id="2_k52dq"]
-[ext_resource type="Texture2D" uid="uid://067ltn2wij2w" path="res://Sprites/Mundo 2/Porta aberta.png" id="3_k52dq"]
-[ext_resource type="Texture2D" uid="uid://dq0b6ftwst6sa" path="res://Sprites/Mundo 2/Porta fechada 2.png" id="4_ehakb"]
-[ext_resource type="Texture2D" uid="uid://cgclpynglfgte" path="res://Sprites/Mundo 2/Quina.png" id="5_n4n0v"]
-[ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="7_unnyj"]
-[ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_17l1s"]
-[ext_resource type="Script" uid="uid://ba4ukom4rlxet" path="res://scripts/spawn_inimigos.gd" id="9_te7wy"]
+[ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://scripts/sala.gd" id="1_8s0jh"]
+[ext_resource type="Texture2D" uid="uid://ccpg7lpnlpyvm" path="res://Sprites/Mundo 3/Parede.png" id="2_8s0jh"]
+[ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="3_q677l"]
+[ext_resource type="Texture2D" uid="uid://c3fp6dchq41ob" path="res://Sprites/Mundo 3/Quina.png" id="4_tjcd8"]
+[ext_resource type="Texture2D" uid="uid://djiygois8vxok" path="res://Sprites/Mundo 3/Porta aberta.png" id="5_8s0jh"]
+[ext_resource type="Texture2D" uid="uid://bqhxjaq8kue71" path="res://Sprites/Mundo 3/Porta fechada 2.png" id="6_tjcd8"]
+[ext_resource type="Texture2D" uid="uid://bk711td10o3tk" path="res://Sprites/chãoSpriteSheet.png" id="7_eyvxb"]
+[ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_40gow"]
+[ext_resource type="Script" uid="uid://ba4ukom4rlxet" path="res://scripts/spawn_inimigos.gd" id="9_3tuqo"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgm6r"]
-texture = ExtResource("2_cpdr5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s0jh"]
+texture = ExtResource("2_8s0jh")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -22,29 +22,13 @@ texture_region_size = Vector2i(64, 64)
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evhlm"]
-texture = ExtResource("7_unnyj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tjcd8"]
+texture = ExtResource("3_q677l")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17l1s"]
-texture = ExtResource("5_n4n0v")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hkmqq"]
-texture = ExtResource("3_k52dq")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:1/0 = 0
-0:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unnyj"]
-texture = ExtResource("4_ehakb")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q677l"]
+texture = ExtResource("4_tjcd8")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -55,8 +39,28 @@ texture_region_size = Vector2i(64, 64)
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_te7wy"]
-texture = ExtResource("2_k52dq")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ap7s"]
+texture = ExtResource("5_8s0jh")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjbcl"]
+texture = ExtResource("6_tjcd8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6usvq"]
+texture = ExtResource("7_eyvxb")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/z_index = -8
@@ -82,18 +86,18 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_d4nyj"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_vgm6r")
-sources/4 = SubResource("TileSetAtlasSource_17l1s")
-sources/9 = SubResource("TileSetAtlasSource_te7wy")
-sources/5 = SubResource("TileSetAtlasSource_hkmqq")
-sources/2 = SubResource("TileSetAtlasSource_evhlm")
-sources/6 = SubResource("TileSetAtlasSource_unnyj")
+sources/9 = SubResource("TileSetAtlasSource_6usvq")
+sources/2 = SubResource("TileSetAtlasSource_tjcd8")
+sources/1 = SubResource("TileSetAtlasSource_8s0jh")
+sources/4 = SubResource("TileSetAtlasSource_q677l")
+sources/5 = SubResource("TileSetAtlasSource_0ap7s")
+sources/6 = SubResource("TileSetAtlasSource_jjbcl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p6ll"]
 size = Vector2(704, 320)
 
-[node name="Sala2" type="Node2D"]
-script = ExtResource("1_cpdr5")
+[node name="Sala3" type="Node2D"]
+script = ExtResource("1_8s0jh")
 
 [node name="TSala" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAABAAIAAQAAAAEAAAABAAMAAQAAAAEAAAABAAQAAQAAAAEAAAABAAUAAQAAAAEAAAABAAYAAQAAAAEAAAACAAEAAQAAAAAAAAACAAcAAQAAAAIAAAADAAEAAQAAAAAAAAADAAMACQAAAAAAAAADAAQACQAAAAAAAAADAAUACQAAAAAAAAADAAcAAQAAAAIAAAAEAAEAAQAAAAAAAAAEAAMACQAAAAAAAAAEAAQACQAAAAAAAAAEAAUACQAAAAAAAAAEAAcAAQAAAAIAAAAFAAEAAQAAAAAAAAAFAAMACQAAAAAAAAAFAAQACQAAAAAAAAAFAAUACQAAAAAAAAAFAAcAAQAAAAIAAAAGAAEAAQAAAAAAAAAGAAMACQAAAAAAAAAGAAQACQAAAAAAAAAGAAUACQAAAAAAAAAGAAcAAQAAAAIAAAAHAAEAAQAAAAAAAAAHAAMACQAAAAAAAAAHAAQACQAAAAAAAAAHAAUACQAAAAAAAAAHAAcAAQAAAAIAAAAIAAEAAQAAAAAAAAAIAAMACQAAAAAAAAAIAAQACQAAAAAAAAAIAAUACQAAAAAAAAAIAAcAAQAAAAIAAAAJAAEAAQAAAAAAAAAJAAMACQAAAAAAAAAJAAQACQAAAAAAAAAJAAUACQAAAAAAAAAJAAcAAQAAAAIAAAAKAAEAAQAAAAAAAAAKAAMACQAAAAAAAAAKAAQACQAAAAAAAAAKAAUACQAAAAAAAAAKAAcAAQAAAAIAAAALAAEAAQAAAAAAAAALAAMACQAAAAAAAAALAAQACQAAAAAAAAALAAUACQAAAAAAAAALAAcAAQAAAAIAAAAMAAEAAQAAAAAAAAAMAAcAAQAAAAIAAAANAAIAAQAAAAMAAAANAAMAAQAAAAMAAAANAAQAAQAAAAMAAAANAAUAAQAAAAMAAAANAAYAAQAAAAMAAAAOAAEAAgAAAAAAAAAOAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAAJAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAADAAAAAgAAAAAAAAACAAAAAgAAAAAAAAABAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAABAAgAAgAAAAAAAAACAAgAAgAAAAAAAAADAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAgAAAAAAAAALAAgAAgAAAAAAAAAMAAgAAgAAAAAAAAANAAgAAgAAAAAAAAAOAAcAAgAAAAAAAAAOAAYAAgAAAAAAAAAOAAUAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAMAAgAAAAAAAAAOAAIAAgAAAAAAAAAOAAgAAgAAAAAAAAABAAEABAAAAAAAAAABAAcABAAAAAEAAAANAAcABAAAAAIAAAANAAEABAAAAAMAAAACAAUACQABAAEAAAACAAQACQABAAEAAAACAAMACQABAAEAAAAMAAYACQABAAIAAAAMAAUACQABAAAAAAAMAAQACQABAAAAAAAMAAMACQABAAAAAAACAAIACQAAAAMAAAALAAIACQAAAAEAAAAKAAIACQAAAAEAAAAJAAIACQAAAAEAAAAIAAIACQAAAAEAAAAHAAIACQAAAAEAAAAGAAIACQAAAAEAAAAFAAIACQAAAAEAAAAEAAIACQAAAAEAAAADAAIACQAAAAEAAAACAAYACQABAAMAAAAMAAIACQAAAAQAAAALAAYACQAAAAIAAAAKAAYACQAAAAIAAAAJAAYACQAAAAIAAAAIAAYACQAAAAIAAAAHAAYACQAAAAIAAAAGAAYACQAAAAIAAAAFAAYACQAAAAIAAAAEAAYACQAAAAIAAAADAAYACQAAAAIAAAA=")
@@ -107,28 +111,28 @@ position = Vector2(-5, -2)
 position = Vector2(486, 292)
 shape = SubResource("RectangleShape2D_8p6ll")
 
-[node name="porta_oeste" parent="." instance=ExtResource("8_17l1s")]
+[node name="porta_oeste" parent="." instance=ExtResource("8_40gow")]
 visible = false
 position = Vector2(86, 290)
 
 [node name="Marker2D" type="Marker2D" parent="porta_oeste"]
 position = Vector2(-269, 0)
 
-[node name="porta_norte" parent="." instance=ExtResource("8_17l1s")]
+[node name="porta_norte" parent="." instance=ExtResource("8_40gow")]
 visible = false
 position = Vector2(479, 84)
 
 [node name="Marker2D" type="Marker2D" parent="porta_norte"]
 position = Vector2(1, -252)
 
-[node name="porta_sul" parent="." instance=ExtResource("8_17l1s")]
+[node name="porta_sul" parent="." instance=ExtResource("8_40gow")]
 visible = false
 position = Vector2(487, 492)
 
 [node name="Marker2D" type="Marker2D" parent="porta_sul"]
 position = Vector2(-2, 251)
 
-[node name="porta_leste" parent="." instance=ExtResource("8_17l1s")]
+[node name="porta_leste" parent="." instance=ExtResource("8_40gow")]
 visible = false
 position = Vector2(876, 283)
 
@@ -136,7 +140,7 @@ position = Vector2(876, 283)
 position = Vector2(257, -6)
 
 [node name="spawn inimigos" type="Node2D" parent="."]
-script = ExtResource("9_te7wy")
+script = ExtResource("9_3tuqo")
 
 [node name="Marker1" type="Marker2D" parent="spawn inimigos"]
 position = Vector2(185, 155)

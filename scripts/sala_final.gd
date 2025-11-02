@@ -43,7 +43,3 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 		fechar_portas(vizinhos_instanciados)
 		
 	
-
-
-func _on_saida_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://cenas/Mundo2.tscn")
