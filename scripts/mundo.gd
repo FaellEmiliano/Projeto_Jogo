@@ -1,2 +1,3 @@
 extends Node2D
-@export var multiplicador = 2
+var multiplicador = 1
+@export var nivel = 2

@@ -3,11 +3,10 @@ extends Node2D
 #globais
 @export var gerador_nó :NodePath
 @export var camera_node : NodePath
+@onready var mundo: Node2D = $".."
+@onready var nivel = mundo.nivel
 var jogador = load("res://cenas/Personagem.tscn")
-var sala = load("res://cenas/sala.tscn")
-var sala_segura = load("res://cenas/sala_segura.tscn")
-var sala_inicial = load("res://cenas/sala_inicial.tscn")
-var sala_const = sala.instantiate()
+var sala_const = load("res://cenas/sala.tscn").instantiate()
 var pos_anterior := Vector2i(0,0)
 var offset = pegar_tamanho()
 @onready var gerador = get_node(gerador_nó)
@@ -47,12 +46,26 @@ func pegar_tamanho() -> Vector2i:
 
 func posicionar_sala(pos :Vector2i, flag :int) -> void:
 	var sala_inst
+	var sala_segura
+	var sala_inicial
 	if flag == 2:
+		if nivel == 1:
+			sala_segura = load("res://cenas/sala_segura.tscn")
+		if nivel == 2:
+			sala_segura = load("res://cenas/sala_segura.tscn")
 		sala_inst = sala_segura.instantiate()
 	elif flag == 1:
+		if nivel == 1:
+			sala_inicial = load("res://cenas/sala_inicial.tscn")
+		if nivel == 2:
+			sala_inicial = load("res://cenas/sala_inicial.tscn")
 		sala_inst = sala_inicial.instantiate()
-	
 	else:
+		var sala
+		if nivel == 1:
+			sala = load("res://cenas/sala.tscn")
+		if nivel == 2:
+			sala = load("res://cenas/sala2.tscn")
 		sala_inst = sala.instantiate()
 	sala_inst.position = pos * sala_const.get_node("TSala").tile_set.tile_size * offset
 	sala_inst.position = pos * sala_const.get_node("TSala").tile_set.tile_size * offset

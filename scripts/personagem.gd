@@ -30,7 +30,7 @@ func atirar():
 		var mouse_pos = get_global_mouse_position()
 		var direcao = (mouse_pos - global_position).normalized()
 		instancia_tiro.Dano = dano
-		instancia_tiro.global_position = global_position + direcao * 64
+		instancia_tiro.global_position = global_position + direcao * 42
 		instancia_tiro.rotation = direcao.angle()
 		instancia_tiro.direcao = direcao
 		instancia_tiro.veloc = veloc_tiro

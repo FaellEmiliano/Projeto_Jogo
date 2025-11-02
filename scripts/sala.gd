@@ -16,25 +16,25 @@ func _on_area_sala_body_exited(body: Node2D) -> void:
 func fechar_portas(vizinhos:Array):
 	for c in vizinhos:
 		if c == "N":
-			tilemap.set_cell(Vector2i(7,1),6,Vector2i(0,0),0)
+			tilemap.set_cell(Vector2i(7,1),3,Vector2i(0,0),0)
 		if c == "S":
-			tilemap.set_cell(Vector2i(7,7),6,Vector2i(0,2),0)
+			tilemap.set_cell(Vector2i(7,7),3,Vector2i(0,2),0)
 		if c == "L":
-			tilemap.set_cell(Vector2i(13,4),6,Vector2i(0,3),0)
+			tilemap.set_cell(Vector2i(13,4),3,Vector2i(0,3),0)
 		if c == "O":
-			tilemap.set_cell(Vector2i(1,4),6,Vector2i(0,1),0)
+			tilemap.set_cell(Vector2i(1,4),3,Vector2i(0,1),0)
 
 func abrir_portas(vizinhos:Array):
 	vizinhos_instanciados = vizinhos
 	for c in vizinhos:
 		if c == "N":
-			tilemap.set_cell(Vector2i(7,1),5,Vector2i(0,0),0)
+			tilemap.set_cell(Vector2i(7,1),2,Vector2i(0,0),0)
 		if c == "S":
-			tilemap.set_cell(Vector2i(7,7),5,Vector2i(0,2),0)
+			tilemap.set_cell(Vector2i(7,7),2,Vector2i(0,2),0)
 		if c == "L":
-			tilemap.set_cell(Vector2i(13,4),5,Vector2i(0,3),0)
+			tilemap.set_cell(Vector2i(13,4),2,Vector2i(0,3),0)
 		if c == "O":
-			tilemap.set_cell(Vector2i(1,4),5,Vector2i(0,1),0)
+			tilemap.set_cell(Vector2i(1,4),2,Vector2i(0,1),0)
 
 func _on_area_sala_body_entered(body: Node2D) -> void:
 	eventos.player_entrou.emit(self)

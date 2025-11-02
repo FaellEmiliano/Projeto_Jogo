@@ -84,10 +84,9 @@ func tomar_dano(Dano:int)-> void:
 		morte()
 
 func atualizar(multi):
-	dano += dano * multi
-	vida += vida * multi
-	veloc_tiro += veloc_tiro*multi
-	fire_rate -= fire_rate/2
+	dano = dano * multi
+	vida = vida * multi
+	veloc_tiro = veloc_tiro*multi
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.is_in_group(\"character\"):

@@ -67,8 +67,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		body.tomar_dano(dano)
 
 func atualizar(multi):
-	dano += dano * multi
-	vida += vida * multi
+	dano = dano * multi
+	vida = vida * multi
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
