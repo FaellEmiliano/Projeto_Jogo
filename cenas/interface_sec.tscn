@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfc0ic28uyfy1"]
+[gd_scene load_steps=12 format=3 uid="uid://dfc0ic28uyfy1"]
 
+[ext_resource type="Texture2D" uid="uid://bcbm02jv8wksr" path="res://Sprites/interface_sec.png" id="1_icjg4"]
 [ext_resource type="Script" uid="uid://cm2q22ot1od55" path="res://scripts/interface_sec.gd" id="1_obo0n"]
+[ext_resource type="Texture2D" uid="uid://dnnilp07opov7" path="res://Sprites/btn_tutorial_nrml.png" id="3_w23v4"]
+[ext_resource type="Texture2D" uid="uid://c3imjqctvfaj3" path="res://Sprites/btn_tutorial_click.png" id="4_0etgv"]
+[ext_resource type="Texture2D" uid="uid://3jl7e3gsvgmn" path="res://Sprites/btn_tutorial_hover.png" id="5_jslvq"]
+[ext_resource type="Texture2D" uid="uid://cehoarxyn5ln" path="res://Sprites/btn_jogar_nrml.png" id="6_6bdc8"]
+[ext_resource type="Texture2D" uid="uid://bm3wtloqaotff" path="res://Sprites/btn_jogar_click.png" id="7_10706"]
+[ext_resource type="Texture2D" uid="uid://bcyvee2i2ix3o" path="res://Sprites/btn_jogar_hover.png" id="8_cwvqb"]
+[ext_resource type="Texture2D" uid="uid://r3pj2xctdjr1" path="res://Sprites/btn_voltar_nrml.png" id="9_mv3w6"]
+[ext_resource type="Texture2D" uid="uid://br147dptmiid8" path="res://Sprites/btn_voltar_click.png" id="10_kcsiw"]
+[ext_resource type="Texture2D" uid="uid://d2je3227wmnmp" path="res://Sprites/btn_voltar_hover.png" id="11_ur2q1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,17 +29,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -78.0
-offset_top = 35.0
-offset_right = 77.0
-offset_bottom = 58.0
-grow_horizontal = 2
-text = "Trabalho jogo lógica"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(480, 288)
+texture = ExtResource("1_icjg4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -46,28 +48,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_obo0n")
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="tutorial" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "tutorial"
+texture_normal = ExtResource("3_w23v4")
+texture_pressed = ExtResource("4_0etgv")
+texture_hover = ExtResource("5_jslvq")
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="jogar" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "nível fácil"
+texture_normal = ExtResource("6_6bdc8")
+texture_pressed = ExtResource("7_10706")
+texture_hover = ExtResource("8_cwvqb")
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="voltar" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-text = "nível médio"
+texture_normal = ExtResource("9_mv3w6")
+texture_pressed = ExtResource("10_kcsiw")
+texture_hover = ExtResource("11_ur2q1")
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "nível díficil"
-
-[node name="Button5" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "voltar"
-
-[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer" method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer" method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer" method="_on_button_3_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button4" to="VBoxContainer" method="_on_button_4_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button5" to="VBoxContainer" method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/tutorial" to="VBoxContainer" method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/jogar" to="VBoxContainer" method="_on_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/voltar" to="VBoxContainer" method="_on_voltar_pressed"]

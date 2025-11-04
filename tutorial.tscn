@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b1j42d7a8wjtd" path="res://cenas/sala.tscn" id="1_ehuit"]
 [ext_resource type="Script" uid="uid://yckgnnjar2sp" path="res://tutorial.gd" id="1_rwowx"]
-[ext_resource type="PackedScene" uid="uid://djgbngd34kdn3" path="res://cenas/sala_tutorial.tscn" id="2_4t6hg"]
+[ext_resource type="PackedScene" uid="uid://djgbngd34kdn3" path="res://cenas/tutorial.tscn" id="2_4t6hg"]
 [ext_resource type="PackedScene" uid="uid://b52c44um4da6e" path="res://cenas/sala_segura.tscn" id="2_5mrt3"]
 [ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="3_rwowx"]
 [ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="4_5mrt3"]

@@ -1,0 +1,308 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn3lqd72a8g2v"]
+
+[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://Sprites/icon.svg" id="1_aigld"]
+
+[sub_resource type="GDScript" id="GDScript_ybwhg"]
+script/source = "extends CharacterBody2D
+class_name enemy
+
+var _is_dead: bool = false
+var _player_ref  = null
+
+@export_category(\"object\")
+@export var _texture: Sprite2D = null
+@export var _animation: AnimationPlayer = null
+@export var vida :int = 500
+@export var dano :int = 30
+var tiro = load(\"res://cenas/tiro.tscn\")
+var timer :float = 0.0
+@export var fire_rate :float = 1
+@export var veloc_tiro = 250
+
+func _on_detection_area_body_entered(_body) -> void:
+	if _body.is_in_group(\"character\"):
+		_player_ref = _body
+		
+		
+func _on_detection_area_body_exited(_body) -> void:
+	if _body.is_in_group(\"character\"):
+		_player_ref = null
+		
+func _physics_process(delta: float) -> void:
+	timer -= delta
+	if _is_dead:
+		return
+	_animate()
+	if _player_ref != null:
+		if _player_ref.is_dead:
+			velocity = Vector2.ZERO
+			move_and_slide()
+			return
+		var _direction: Vector2 = global_position.direction_to(_player_ref.global_position)
+		var _distance: float = global_position.distance_to(_player_ref.global_position)
+		velocity = _direction * 200
+		if _distance > 300:
+			move_and_slide()
+		else:
+			atirar(_direction)
+		
+func atirar(direcao : Vector2):
+	if timer <= 0:
+		var instancia_tiro = tiro.instantiate()
+		instancia_tiro.global_position = global_position + direcao * 64
+		instancia_tiro.rotation = direcao.angle()
+		instancia_tiro.direcao = direcao
+		instancia_tiro.veloc = veloc_tiro
+		instancia_tiro.Dano = dano
+		get_tree().current_scene.add_child(instancia_tiro)
+		timer = fire_rate
+
+
+func _animate() -> void:
+	if velocity.x > 0:
+		_texture.flip_h = false
+		
+	if velocity.x < 0:
+		_texture.flip_h = true
+
+	if velocity != Vector2.ZERO:
+		_animation.play(\"walk\")
+		return
+		
+	_animation.play(\"stand\")
+func morte() -> void:
+	_is_dead = true
+	_animation.play(\"death\")
+	queue_free()
+	
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	queue_free()
+
+func tomar_dano(Dano:int)-> void:
+	vida -= Dano
+	if vida <= 0:
+		morte()
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"character\"):
+		body.tomar_dano(dano)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
+size = Vector2(34.28572, 32.85715)
+
+[sub_resource type="Animation" id="Animation_hgy1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aigld")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1hjus"]
+resource_name = "hurt"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aigld")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fmadf"]
+resource_name = "stand"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aigld")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ctjo7"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_aigld")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uama8"]
+_data = {
+&"RESET": SubResource("Animation_hgy1b"),
+&"hurt": SubResource("Animation_1hjus"),
+&"stand": SubResource("Animation_fmadf"),
+&"walk": SubResource("Animation_ctjo7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
+radius = 591.00085
+
+[node name="esqueleto" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["Enemy", "enemy"]]
+scale = Vector2(0.7, 0.7)
+script = SubResource("GDScript_ybwhg")
+_texture = NodePath("Sprite2D")
+_animation = NodePath("AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+show_behind_parent = true
+position = Vector2(-1.2772422e-06, -1.3623917e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_bjbex")
+
+[node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+show_behind_parent = true
+position = Vector2(-8.9406956e-07, 0.71428573)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_bjbex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("1_aigld")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uama8")
+}
+autoplay = "walk"
+
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+show_behind_parent = true
+shape = SubResource("CircleShape2D_kramk")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -15,6 +15,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body) -> void:
-	if body.has_method("dano"):
-		body.dano(Dano)
+	if body.has_method("tomar_dano"):
+		body.tomar_dano(Dano)
 	queue_free()

@@ -1,4 +1,7 @@
-extends CharacterBody2D
+extends Node2D
+signal saiu()
 
 func _on_area_2d_body_entered(body) -> void:
-	queue_free()
+	if body.is_in_group("character"):
+		saiu.emit()
+		queue_free()

@@ -1,16 +1,11 @@
 extends Node2D
 
 var player_entrou: bool = false
-var indicacoes: int
+var indicacoes: int = 4
 @onready var tilemap = $TSala
 var vizinhos_instanciados: Array
 
-func _on_area_sala_body_exited(body: Node2D) -> void:
-	if body.is_in_group("indicacoes"):
-		indicacoes -= 1
-		if indicacoes <= 0:
-			abrir_portas(vizinhos_instanciados)
-			player_entrou = true
+
 
 func fechar_portas(vizinhos: Array):
 	for c in vizinhos:
@@ -40,3 +35,10 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character") and not player_entrou:
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
+
+
+func _on_saiu() -> void:
+	indicacoes -= 1
+	if indicacoes <= 0:
+		abrir_portas(vizinhos_instanciados)
+		player_entrou = true

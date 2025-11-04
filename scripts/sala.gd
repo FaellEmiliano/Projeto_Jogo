@@ -3,10 +3,11 @@ var player_entrou :bool = false
 var inimigos :int
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
+var pesos_inimigos = [2,4,4]
 
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enimy"):
+	if body.is_in_group("enemy"):
 		inimigos -= 1
 		if inimigos <=0:
 			abrir_portas(vizinhos_instanciados)
@@ -40,5 +41,3 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character") and not player_entrou:
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
-		
-	
