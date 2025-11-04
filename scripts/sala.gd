@@ -3,7 +3,7 @@ var player_entrou :bool = false
 var inimigos :int
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
-var pesos_inimigos = [2,4,4]
+var pesos_inimigos = [8,1,1]
 
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
@@ -43,7 +43,10 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 		fechar_portas(vizinhos_instanciados)
 		
 	
-
+func _process(_delta: float) -> void:
+	if player_entrou:
+		abrir_portas(vizinhos_instanciados)
+	
 
 func _on_saida_body_entered(_body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://cenas/Mundo2.tscn")
