@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Enimy
+class_name Enemy
 
 var _player_ref = null
 

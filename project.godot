@@ -30,8 +30,9 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 character=""
-Enimy=""
 Ataque=""
+indicacoes=""
+Enemy=""
 
 [input]
 

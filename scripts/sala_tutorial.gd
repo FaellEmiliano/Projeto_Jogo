@@ -1,19 +1,13 @@
 extends Node2D
-var player_entrou :bool = false
-var inimigos :int
+
+var player_entrou: bool = false
+var indicacoes: int = 4
 @onready var tilemap = $TSala
-var vizinhos_instanciados :Array
-var pesos_inimigos = [2,4,4]
+var vizinhos_instanciados: Array
 
 
-func _on_area_sala_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
-		inimigos -= 1
-		if inimigos <=0:
-			abrir_portas(vizinhos_instanciados)
-			player_entrou = 1
 
-func fechar_portas(vizinhos:Array):
+func fechar_portas(vizinhos: Array):
 	for c in vizinhos:
 		if c == "N":
 			tilemap.set_cell(Vector2i(7,1),6,Vector2i(0,0),0)
@@ -24,7 +18,7 @@ func fechar_portas(vizinhos:Array):
 		if c == "O":
 			tilemap.set_cell(Vector2i(1,4),6,Vector2i(0,1),0)
 
-func abrir_portas(vizinhos:Array):
+func abrir_portas(vizinhos: Array):
 	vizinhos_instanciados = vizinhos
 	for c in vizinhos:
 		if c == "N":
@@ -41,9 +35,10 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character") and not player_entrou:
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
-		
-	
 
 
-func _on_saida_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://cenas/Mundo2.tscn")
+func _on_saiu() -> void:
+	indicacoes -= 1
+	if indicacoes <= 0:
+		abrir_portas(vizinhos_instanciados)
+		player_entrou = true

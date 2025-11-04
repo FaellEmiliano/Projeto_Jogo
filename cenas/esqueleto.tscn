@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_ybwhg"]
 script/source = "extends CharacterBody2D
-class_name enimy
+class_name enemy
 
 var _is_dead: bool = false
 var _player_ref  = null
@@ -269,7 +269,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
 radius = 591.00085
 
-[node name="esqueleto" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["Enimy", "enimy"]]
+[node name="esqueleto" type="CharacterBody2D" node_paths=PackedStringArray("_texture", "_animation") groups=["Enemy", "enemy"]]
 scale = Vector2(0.7, 0.7)
 script = SubResource("GDScript_ybwhg")
 _texture = NodePath("Sprite2D")
@@ -300,7 +300,7 @@ libraries = {
 }
 autoplay = "walk"
 
-[node name="DetectionArea" type="Area2D" parent="." groups=["Enimy", "enimy"]]
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 show_behind_parent = true

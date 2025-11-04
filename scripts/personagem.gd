@@ -8,16 +8,17 @@ extends CharacterBody2D
 var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
-var _state_machine
-var upgrades :Array = [0,0,0] #Vida,Dano,Veloc
-var vida_max = 100
+var upgrades :Array = [0,0,0] #Vida,Dano,Velocd
+var vida_max: float = 100
+var state: String = "state"
+var input_direction: Vector2 = Vector2.ZERO
 @onready var vida = vida_max
+@onready var state_machine = $AnimatedSprite2D
 
 func movimentacao():
-	var input_direction = Input.get_vector("mov_esquerda", "mov_direita", "mov_cima", "mov_baixo")
+	input_direction = Input.get_vector("mov_esquerda", "mov_direita", "mov_cima", "mov_baixo")
 	velocity = input_direction * speed
 	if is_dead:
-		_state_machine.travel("death")
 		return
 	
 
@@ -37,7 +38,7 @@ func atirar():
 		get_parent().add_child(instancia_tiro)
 		print("tiro!")
 		timer = fire_rate
-	
+
 
 func tomar_dano(dano :float):
 	vida -= dano
@@ -51,8 +52,10 @@ func _physics_process(delta):
 	movimentacao()
 	atirar()
 	move_and_slide()
+	tipos_de_movimentacoes()
+	state_machine.play(state)
 	if vida < vida_max:
-		vida += regen *delta
+		vida += regen * delta
 
 func atualizar(flag :int):
 	if flag == 1:
@@ -64,7 +67,24 @@ func atualizar(flag :int):
 
 func die() -> void:
 	is_dead = true
-	if _state_machine:
-		_state_machine.travel("death")
+	state = "death"
+	state_machine.play(state)
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://cenas/tela_morte.tscn")
+
+func tipos_de_movimentacoes():
+	if input_direction == Vector2.ZERO:
+		state = "state"
+	else:
+		if abs(input_direction.x) > abs(input_direction.y):
+			state = "walk_x"
+			if input_direction.x > 0:
+				state_machine.flip_h = false
+			else:
+				state_machine.flip_h = true
+		else:
+			if input_direction.y > 0:
+				state = "walk_down"
+			else:
+				state = "walk_up"
+				

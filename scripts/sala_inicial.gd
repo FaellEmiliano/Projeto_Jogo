@@ -6,7 +6,7 @@ var vizinhos_instanciados :Array
 
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enimy"):
+	if body.is_in_group("enemy"):
 		inimigos -= 1
 		if inimigos <=0:
 			abrir_portas(vizinhos_instanciados)
