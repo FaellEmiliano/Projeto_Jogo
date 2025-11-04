@@ -4,4 +4,4 @@ extends TextureProgressBar
 
 func _physics_process(_delta: float) -> void:
 	value = jogador.vida
-	max_value = jogador.vida_max
+	max_value = upgrade.vida_max

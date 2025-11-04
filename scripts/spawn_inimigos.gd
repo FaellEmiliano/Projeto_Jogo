@@ -39,7 +39,8 @@ func aleatorizar():
 			return valores[i]
 
 func normalizar_dificuldade(inimigo):
-	inimigo.atualizar(mundo.multiplicador)
+	if mundo.name != "root":
+		inimigo.atualizar(mundo.multiplicador)
 	
 
 func _ready() -> void:

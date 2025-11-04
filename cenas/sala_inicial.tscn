@@ -95,7 +95,7 @@ sources/0 = SubResource("TileSetAtlasSource_7jcbu")
 size = Vector2(704, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2l3g"]
-size = Vector2(329.5, 191)
+size = Vector2(700, 316)
 
 [node name="Sala_inicial" type="Node2D"]
 script = ExtResource("1_w2l3g")
@@ -148,8 +148,9 @@ script = ExtResource("9_ns6gp")
 position = Vector2(8, -215)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mensagem/Area2D"]
-position = Vector2(-1, 130)
+position = Vector2(6, 116)
 shape = SubResource("RectangleShape2D_w2l3g")
 
 [connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
 [connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]
+[connection signal="body_entered" from="mensagem/Area2D" to="mensagem" method="_on_area_2d_body_entered"]

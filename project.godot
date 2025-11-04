@@ -20,6 +20,7 @@ config/icon="res://Sprites/icon.svg"
 
 eventos="*res://scripts/eventos.gd"
 GerenciadorDialogo="*res://scripts/gerenciador_dialogo.gd"
+upgrade="*res://scripts/upgrade.gd"
 
 [display]
 

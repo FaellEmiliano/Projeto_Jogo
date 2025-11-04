@@ -6,6 +6,6 @@ var texto
 
 func _physics_process(_delta: float) -> void:
 	vida_atual = jogador.vida
-	vida_max = jogador.vida_max
+	vida_max = upgrade.vida_max
 	texto = str(vida_atual) + '/' + str(vida_max)
 	text = texto

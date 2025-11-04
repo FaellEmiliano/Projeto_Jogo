@@ -7,9 +7,9 @@ const tamanho_max = 256
 var text := ""
 var indice = 0
 
-var letter_display_timer := 0.07
-var space_display_timer := 0.05
-var pontuacao_display_timer := 0.2
+var letter_display_timer := 0.02
+var space_display_timer := 0.03
+var pontuacao_display_timer := 0.07
 
 signal texto_finalizado()
 

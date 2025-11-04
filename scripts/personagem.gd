@@ -3,13 +3,13 @@ extends CharacterBody2D
 @export var speed:int = 300
 @export var veloc_tiro = 300
 @export var fire_rate :float = 0.5
-@export var regen = 1
-@export var dano = 500
+var regen = upgrade.regen
+var dano = upgrade.dano
 var tiro = load("res://cenas/tiro.tscn")
 var timer :float = 0.0
 var is_dead: bool = false
-var upgrades :Array = [0,0,0] #Vida,Dano,Velocd
-var vida_max: float = 100
+var upgrades = upgrade.upgrades
+var vida_max: float = upgrade.vida_max
 var state: String = "state"
 var input_direction: Vector2 = Vector2.ZERO
 @onready var vida = vida_max
@@ -57,20 +57,17 @@ func _physics_process(delta):
 	if vida < vida_max:
 		vida += regen * delta
 
-func atualizar(flag :int):
-	if flag == 1:
-		vida_max += vida_max/10 * upgrades[0]
-		regen += upgrades[0] * 2
-	elif flag == 2:
-		dano += 500
-		
-
 func die() -> void:
 	is_dead = true
 	state = "death"
 	state_machine.play(state)
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://cenas/tela_morte.tscn")
+
+func atualizar():
+		vida_max = upgrade.vida_max
+		regen = upgrade.regen
+		dano = upgrade.dano
 
 func tipos_de_movimentacoes():
 	if input_direction == Vector2.ZERO:

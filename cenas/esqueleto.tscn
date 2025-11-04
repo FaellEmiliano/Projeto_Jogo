@@ -12,11 +12,11 @@ var _player_ref  = null
 @export_category(\"object\")
 @export var _texture: Sprite2D = null
 @export var _animation: AnimationPlayer = null
-@export var vida :int = 500
-@export var dano :int = 30
+@export var vida :int = 750
+@export var dano :int = 15
 var tiro = load(\"res://cenas/tiro.tscn\")
 var timer :float = 0.0
-@export var fire_rate :float = 1
+@export var fire_rate :float = 1.5
 @export var veloc_tiro = 250
 
 func _on_detection_area_body_entered(_body) -> void:
