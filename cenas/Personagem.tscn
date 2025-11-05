@@ -205,5 +205,4 @@ script = ExtResource("6_lu1ij")
 position = Vector2(-2.6666665, 1.3333334)
 scale = Vector2(1.3645834, 1.3854166)
 sprite_frames = SubResource("SpriteFrames_henqc")
-animation = &"walk_up"
-frame_progress = 0.956794
+animation = &"walk_x"
