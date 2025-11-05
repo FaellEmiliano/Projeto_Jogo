@@ -1,8 +1,17 @@
 extends Node2D
 
 signal seta_ativada(seta)
-var pode_pegar := false
+var pode_pegar = false
 var player_ref = null
+
+@onready var vel = $AnimatedSprite2D
+@onready var dano = $AnimatedSprite2D
+@onready var vida = $AnimatedSprite2D
+
+func _ready() -> void:
+	vel.play("default")
+	dano.play("default")
+	vida.play("default")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character"):

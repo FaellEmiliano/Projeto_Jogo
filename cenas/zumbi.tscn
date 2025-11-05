@@ -8,6 +8,7 @@
 script/source = "extends CharacterBody2D
 class_name enemy
 
+var body_in_range: bool = false
 var _is_dead: bool = false
 var _player_ref  = null
 var state: String = \"idle\"
@@ -70,16 +71,29 @@ func tomar_dano(Dano:int)-> void:
 		morte()
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group(\"character\"):
-		body.tomar_dano(dano)
+	if body.is_in_group(\"character\") and not _is_dead:
+		body_in_range = true
+		_attack_loop(body)
 
 func atualizar(multi):
 	dano = dano * multi
 	vida = vida * multi
+
+
+
+func _on_hitbox_body_exited(body: Node2D) -> void:
+	if body.is_in_group(\"character\"):
+		body_in_range = false
+
+func _attack_loop(body: Node2D) -> void:
+	while body_in_range and not _is_dead:
+		if body.is_in_group(\"character\") and not body.is_dead:
+			body.tomar_dano(dano)
+		await get_tree().create_timer(0.75).timeout
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
-size = Vector2(38.961052, 76.6234)
+size = Vector2(39.48053, 85.454575)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
 radius = 591.00085
@@ -261,8 +275,8 @@ script = SubResource("GDScript_ybwhg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 show_behind_parent = true
-position = Vector2(-1.2772422e-06, -1.3623917e-06)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-0.2597401, -4.415586)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -288,5 +302,6 @@ sprite_frames = SubResource("SpriteFrames_ako7d")
 animation = &"walk.x"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
