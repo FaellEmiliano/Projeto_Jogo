@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://djgbngd34kdn3"]
+[gd_scene load_steps=26 format=4 uid="uid://djgbngd34kdn3"]
 
 [ext_resource type="Script" uid="uid://5fcaeswy6ssu" path="res://scripts/tutorial.gd" id="1_cilvw"]
 [ext_resource type="Script" uid="uid://mideg5cbxtl2" path="res://scripts/sala_tutorial.gd" id="2_hdlur"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="10_64spd"]
 [ext_resource type="PackedScene" uid="uid://byuha4l114xwp" path="res://cenas/indicacoes.tscn" id="11_o4jp7"]
 [ext_resource type="PackedScene" uid="uid://b1j42d7a8wjtd" path="res://cenas/sala.tscn" id="12_hdlur"]
+[ext_resource type="PackedScene" uid="uid://dx26ymni0jlrp" path="res://cenas/sala_final.tscn" id="14_lb74p"]
+[ext_resource type="Script" uid="uid://d33p522rwg8kh" path="res://scripts/sala_final_tutorial.gd" id="15_2eb1v"]
 [ext_resource type="PackedScene" uid="uid://b52c44um4da6e" path="res://cenas/sala_segura.tscn" id="15_nwfb3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jcbu"]
@@ -169,6 +171,10 @@ position = Vector2(0, -576)
 [node name="Sala_Segura" parent="." instance=ExtResource("15_nwfb3")]
 position = Vector2(0, -1152)
 
+[node name="Sala_final_tutorial" parent="." instance=ExtResource("14_lb74p")]
+position = Vector2(0, -1728)
+script = ExtResource("15_2eb1v")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
 anchor_mode = 0
@@ -178,6 +184,7 @@ rotation_smoothing_enabled = true
 script = ExtResource("3_bhou2")
 
 [node name="menu_btn" parent="Camera2D" instance=ExtResource("4_nwfb3")]
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_top = 0.5
