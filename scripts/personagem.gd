@@ -58,10 +58,12 @@ func _physics_process(delta):
 		vida += regen * delta
 
 func die() -> void:
+	upgrade.reset()
+	atualizar()
 	is_dead = true
 	state = "death"
 	state_machine.play(state)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://cenas/tela_morte.tscn")
 
 func atualizar():

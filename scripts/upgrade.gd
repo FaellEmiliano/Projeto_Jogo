@@ -10,3 +10,9 @@ func atualizar(flag :int):
 		regen += upgrades[0] * 2
 	elif flag == 2:
 		dano += 250
+		
+func reset():
+	regen = 1
+	dano = 500
+	upgrades = [0,0,0] #Vida,Dano,Velocd
+	vida_max = 100
