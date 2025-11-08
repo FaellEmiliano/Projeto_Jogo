@@ -1,13 +1,13 @@
 extends Node2D
 var player_entrou :bool = false
-var inimigos :int = 1
+var inimigos :int = 0
 @onready var tilemap = $TSala
-var vizinhos_instanciados :Array
+var vizinhos_instanciados :Array = ["N"]
 var pesos_inimigos = [2,4,4]
 var boss2 = load("res://cenas/esqueleto_boss.tscn")
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
-	if body.is_in_group("enimy"):
+	if body.is_in_group("Enemy"):
 		inimigos -= 1
 		if inimigos <=0:
 			abrir_portas(vizinhos_instanciados)
@@ -42,6 +42,7 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 		var esquel = boss2.instantiate()
 		esquel.position = Vector2(480,286)
 		add_child(esquel)
+		inimigos += 1
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
 		

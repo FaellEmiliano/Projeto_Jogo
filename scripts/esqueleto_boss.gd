@@ -4,7 +4,7 @@ var _is_dead: bool = false
 var _player_ref  = null
 
 @export_category("object")
-@export var vida :int = 15000
+@export var vida :int = 1000
 @export var dano :int = 50
 var tiro = load("res://cenas/tiro_esqueleto.tscn")
 var timer :float = 0.0

@@ -1,6 +1,6 @@
 extends Node2D
 var player_entrou :bool = false
-var inimigos :int = 1
+var inimigos :int = 0
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
 var pesos_inimigos = [1,4,5]
@@ -45,6 +45,7 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 			var zumbi = boss.instantiate()
 			zumbi.position = Vector2(480,286)
 			add_child(zumbi)
+			inimigos += 1
 		
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
