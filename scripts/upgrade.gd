@@ -16,3 +16,12 @@ func atualizar(flag :int):
 	elif flag == 3:
 		speed += speed/10 * upgrades[2]
 		fire_rate -= fire_rate/10 * upgrades[2]
+
+func reset():
+	regen = 1
+	dano = 500
+	speed = 300
+	veloc_tiro = 300
+	fire_rate = 0.5
+	upgrades = [0,0,0] #Vida,Dano,Velocd
+	vida_max = 100
