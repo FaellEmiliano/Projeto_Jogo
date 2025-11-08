@@ -37,7 +37,7 @@ camera_node = NodePath("../Camera2D")
 [node name="Gerador_mapa" parent="Gerenciador_mapa" instance=ExtResource("3_qn2bx")]
 position = Vector2(0, -3)
 Dimensoes = Vector2i(5, 5)
-"Tamanho_Mínimo" = 15
+"Tamanho_Mínimo" = 10
 metadata/_edit_pinned_properties_ = [&"Dimensoes", &"Tamanho_Mínimo"]
 
 [node name="Camera2D" type="Camera2D" parent="."]

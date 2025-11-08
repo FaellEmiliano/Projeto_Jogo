@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed:int = 300
-@export var veloc_tiro = 300
-@export var fire_rate :float = 0.5
+var speed = upgrade.speed
+var veloc_tiro = upgrade.veloc_tiro
+var fire_rate = upgrade.fire_rate
 var regen = upgrade.regen
 var dano = upgrade.dano
 var tiro = load("res://cenas/tiro.tscn")
@@ -68,6 +68,8 @@ func atualizar():
 		vida_max = upgrade.vida_max
 		regen = upgrade.regen
 		dano = upgrade.dano
+		fire_rate = upgrade.fire_rate
+		speed = upgrade.speed
 
 func tipos_de_movimentacoes():
 	if input_direction == Vector2.ZERO:
