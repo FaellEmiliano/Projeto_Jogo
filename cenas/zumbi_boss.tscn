@@ -1,19 +1,15 @@
-[gd_scene load_steps=33 format=3 uid="uid://b852bneiowgjh"]
+[gd_scene load_steps=29 format=3 uid="uid://b852bneiowgjh"]
 
 [ext_resource type="Script" uid="uid://ci0om4nl6gebq" path="res://scripts/zumbi_boss.gd" id="1_igdkm"]
 [ext_resource type="Texture2D" uid="uid://gbb3pjnh5xut" path="res://Sprites/Animação Frente.png" id="1_m15qu"]
-[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="2_3ygmr"]
 [ext_resource type="Texture2D" uid="uid://03ij71m48c1u" path="res://Sprites/Animação de Costas.png" id="2_igdkm"]
 [ext_resource type="Texture2D" uid="uid://xlyh2m5b1d32" path="res://Sprites/Animação de Lado Direito.png" id="3_6agqy"]
-[ext_resource type="Texture2D" uid="uid://dgi6348ykacpn" path="res://Sprites/Barra_de_vida_inimigo.png" id="3_bnnqm"]
-[ext_resource type="Script" uid="uid://dex8dvhc7vjvc" path="res://cenas/label_boss1.gd" id="5_3ygmr"]
-[ext_resource type="Script" uid="uid://dlpws8v6yty48" path="res://scripts/texture_progress_bar_boss.gd" id="7_3ygmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
 size = Vector2(39.48053, 85.454575)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kramk"]
-radius = 591.00085
+radius = 881.8035
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ako7d"]
 atlas = ExtResource("1_m15qu")
@@ -186,6 +182,7 @@ animations = [{
 }]
 
 [node name="zumbi_boss" type="CharacterBody2D" groups=["Enemy", "enemy"]]
+position = Vector2(0.99999994, 1.9999999)
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_igdkm")
 
@@ -209,40 +206,14 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 show_behind_parent = true
+position = Vector2(-2.8571415, -2.8571424)
 shape = SubResource("CircleShape2D_kramk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.4285715, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ako7d")
-animation = &"walk.x"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="AnimatedSprite2D"]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="AnimatedSprite2D/CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -126.0
-offset_top = -748.0
-offset_right = 126.0
-offset_bottom = -708.0
-grow_vertical = 0
-value = 20.0
-texture_under = ExtResource("2_3ygmr")
-texture_progress = ExtResource("3_bnnqm")
-script = ExtResource("7_3ygmr")
-
-[node name="Label" type="Label" parent="AnimatedSprite2D/CanvasLayer/TextureProgressBar"]
-layout_mode = 0
-offset_left = 95.0
-offset_top = -24.0
-offset_right = 157.0
-offset_bottom = -1.0
-text = "100/100"
-script = ExtResource("5_3ygmr")
+animation = &"idle"
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

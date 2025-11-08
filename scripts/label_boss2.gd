@@ -2,10 +2,10 @@ extends Label
 
 var vida_atual :int
 var texto
-@onready var zumbi_boss = $"../../.."
+@onready var esqueleto_boss = $"../../.."
 
 func _physics_process(_delta: float) -> void:
-	vida_atual = zumbi_boss.vida
+	vida_atual = esqueleto_boss.vida
 	texto = str(vida_atual) + '/' + '10000'
 	text = texto
 	if vida_atual <= 0:

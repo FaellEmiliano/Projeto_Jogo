@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://dx26ymni0jlrp"]
+[gd_scene load_steps=24 format=4 uid="uid://dx26ymni0jlrp"]
 
 [ext_resource type="Script" uid="uid://dtg5pnv470cbe" path="res://scripts/sala.gd" id="1_et03r"]
 [ext_resource type="Texture2D" uid="uid://bk711td10o3tk" path="res://Sprites/chãoSpriteSheet.png" id="2_4b0x6"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://bltcs13dp18hx" path="res://Sprites/Porta fechada 2.png" id="6_r1jga"]
 [ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="7_arx2u"]
 [ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_c55ge"]
+[ext_resource type="PackedScene" uid="uid://b852bneiowgjh" path="res://cenas/zumbi_boss.tscn" id="9_et03r"]
+[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="10_5njcn"]
+[ext_resource type="Texture2D" uid="uid://dgi6348ykacpn" path="res://Sprites/Barra_de_vida_inimigo.png" id="11_r1jga"]
+[ext_resource type="Script" uid="uid://dlpws8v6yty48" path="res://scripts/texture_progress_bar_boss.gd" id="12_arx2u"]
+[ext_resource type="Script" uid="uid://dex8dvhc7vjvc" path="res://cenas/label_boss1.gd" id="13_c55ge"]
+[ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="14_r1jga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jcbu"]
 texture = ExtResource("2_4b0x6")
@@ -146,6 +152,41 @@ position = Vector2(257, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saida"]
 position = Vector2(480, 286)
 shape = SubResource("CircleShape2D_jeokq")
+
+[node name="zumbi_boss" parent="." instance=ExtResource("9_et03r")]
+position = Vector2(482.99997, 278.99997)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="zumbi_boss"]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="zumbi_boss/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 844.0
+offset_top = -312.0
+offset_right = 1096.0
+offset_bottom = -272.0
+grow_vertical = 0
+value = 20.0
+texture_under = ExtResource("10_5njcn")
+texture_progress = ExtResource("11_r1jga")
+script = ExtResource("12_arx2u")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="zumbi_boss/CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = -24.0
+offset_right = 157.0
+offset_bottom = -1.0
+text = "100/100"
+script = ExtResource("13_c55ge")
+metadata/_edit_use_anchors_ = true
+
+[node name="personagem" parent="." instance=ExtResource("14_r1jga")]
+position = Vector2(240, 253)
 
 [connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
 [connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]
