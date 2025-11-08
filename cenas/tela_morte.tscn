@@ -1,84 +1,59 @@
-[gd_scene load_steps=9 format=3 uid="uid://bogr51qodt1cn"]
+[gd_scene load_steps=12 format=3 uid="uid://bogr51qodt1cn"]
 
 [ext_resource type="Script" uid="uid://bekuy6c3qe3l0" path="res://scripts/tela_morte.gd" id="1_23771"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3motl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23771"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3v3mb"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cue25"]
-
-[sub_resource type="Theme" id="Theme_ni6d6"]
-Button/colors/font_focus_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
-Button/colors/font_hover_color = Color(0.35907015, 0.35906863, 0.3590694, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/styles/focus = SubResource("StyleBoxEmpty_3motl")
-Button/styles/hover = SubResource("StyleBoxEmpty_23771")
-Button/styles/normal = SubResource("StyleBoxEmpty_3v3mb")
-Button/styles/pressed = SubResource("StyleBoxEmpty_cue25")
-
-[sub_resource type="InputEventAction" id="InputEventAction_ris8k"]
-action = &"ui_cancel"
-
-[sub_resource type="Shortcut" id="Shortcut_sp3vo"]
-events = [SubResource("InputEventAction_ris8k")]
+[ext_resource type="Texture2D" uid="uid://ds3gexp1he8sj" path="res://Sprites/Menu Fundo Morte.png" id="2_38f5d"]
+[ext_resource type="Texture2D" uid="uid://boniaicexf1u6" path="res://Sprites/btn_reiniciar.png" id="3_rn6h3"]
+[ext_resource type="Texture2D" uid="uid://bg3b341h1jpag" path="res://Sprites/btn_reiniciar_click.png" id="4_hbdyg"]
+[ext_resource type="Texture2D" uid="uid://dipfd76hul078" path="res://Sprites/btn_reiniciar_hover.png" id="5_b0wfi"]
+[ext_resource type="Texture2D" uid="uid://dqrwea7hfq1lc" path="res://Sprites/btn_menu.png" id="6_noy2o"]
+[ext_resource type="Texture2D" uid="uid://bpx3uf6vxm0mc" path="res://Sprites/btn_menu_click.png" id="7_xt7bh"]
+[ext_resource type="Texture2D" uid="uid://g4av2330nwcv" path="res://Sprites/btn_menu_hover.png" id="8_d2ftp"]
+[ext_resource type="Texture2D" uid="uid://4pxwkrebv2ly" path="res://Sprites/btn_sair_nrml.png" id="9_b0wfi"]
+[ext_resource type="Texture2D" uid="uid://bxa2ptgnnnulg" path="res://Sprites/btn_sair_click.png" id="10_noy2o"]
+[ext_resource type="Texture2D" uid="uid://b0x70q2x7dbx7" path="res://Sprites/btn_sair_hover.png" id="11_xt7bh"]
 
 [node name="tela_morte" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_23771")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.27450982)
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -225.5
-offset_bottom = -202.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 25
-text = "Você morreu"
-horizontal_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(480, 288)
+texture = ExtResource("2_38f5d")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -4.0
-offset_bottom = 4.0
+offset_left = -135.0
+offset_top = -82.0
+offset_right = 135.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 4
 
-[node name="reiniciar nível" type="Button" parent="VBoxContainer"]
+[node name="reiniciar nível" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ni6d6")
-shortcut = SubResource("Shortcut_sp3vo")
-text = "reiniciar nível"
+texture_normal = ExtResource("3_rn6h3")
+texture_pressed = ExtResource("4_hbdyg")
+texture_hover = ExtResource("5_b0wfi")
 
-[node name="menu" type="Button" parent="VBoxContainer"]
+[node name="menu" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ni6d6")
-shortcut = SubResource("Shortcut_sp3vo")
-text = "menu"
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_noy2o")
+texture_pressed = ExtResource("7_xt7bh")
+texture_hover = ExtResource("8_d2ftp")
 
-[node name="quit" type="Button" parent="VBoxContainer"]
+[node name="quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_ni6d6")
-text = "Quit
-"
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_b0wfi")
+texture_pressed = ExtResource("10_noy2o")
+texture_hover = ExtResource("11_xt7bh")
 
-[connection signal="pressed" from="VBoxContainer/reiniciar nível" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/reiniciar nível" to="." method="_on_reiniciar_nível_pressed"]
 [connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

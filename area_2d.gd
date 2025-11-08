@@ -2,10 +2,13 @@ extends Area2D
 
 var veloc = 0
 var direcao: Vector2 = Vector2.ZERO
+@onready var tiro = $AnimatedSprite2D
+
 @export var Dano :int = 500
 
 func _ready() -> void:
 	z_index = -1
+	tiro.play("tiro")
 
 func _physics_process(delta: float) -> void:
 	position += veloc * direcao * delta

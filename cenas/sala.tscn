@@ -115,6 +115,7 @@ position = Vector2(86, 290)
 
 [node name="Marker2D" type="Marker2D" parent="porta_oeste"]
 position = Vector2(-269, 0)
+scale = Vector2(1.3, 1.3)
 
 [node name="porta_norte" parent="." instance=ExtResource("6_taouk")]
 visible = false
@@ -122,6 +123,7 @@ position = Vector2(479, 84)
 
 [node name="Marker2D" type="Marker2D" parent="porta_norte"]
 position = Vector2(1, -252)
+scale = Vector2(1.3, 1.3)
 
 [node name="porta_sul" parent="." instance=ExtResource("6_taouk")]
 visible = false
@@ -129,6 +131,7 @@ position = Vector2(487, 492)
 
 [node name="Marker2D" type="Marker2D" parent="porta_sul"]
 position = Vector2(-2, 251)
+scale = Vector2(1.3, 1.3)
 
 [node name="porta_leste" parent="." instance=ExtResource("6_taouk")]
 visible = false
@@ -136,6 +139,7 @@ position = Vector2(876, 283)
 
 [node name="Marker2D" type="Marker2D" parent="porta_leste"]
 position = Vector2(257, -6)
+scale = Vector2(1.3, 1.3)
 
 [node name="spawn inimigos" type="Node2D" parent="."]
 script = ExtResource("9_jtrk3")

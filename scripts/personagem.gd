@@ -61,7 +61,7 @@ func die() -> void:
 	is_dead = true
 	state = "death"
 	state_machine.play(state)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_file("res://cenas/tela_morte.tscn")
 
 func atualizar():

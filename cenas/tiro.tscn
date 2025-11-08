@@ -1,18 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://srs8iocc7px0"]
+[gd_scene load_steps=6 format=3 uid="uid://srs8iocc7px0"]
 
 [ext_resource type="Script" uid="uid://d2g42oqlwd55v" path="res://scripts/tiro.gd" id="1_gp2hl"]
-[ext_resource type="Texture2D" uid="uid://br8bv3rwc2flx" path="res://Sprites/icon.svg" id="1_rivwi"]
+[ext_resource type="Texture2D" uid="uid://i4ubvjlg2wrh" path="res://Sprites/Adaga.png" id="2_r2yu0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q7r2"]
+atlas = ExtResource("2_r2yu0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iax2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q7r2")
+}],
+"loop": true,
+"name": &"tiro",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rivwi"]
-size = Vector2(12, 25.5)
+size = Vector2(12, 26.75)
 
 [node name="Tiro" type="Area2D" groups=["Ataque"]]
 script = ExtResource("1_gp2hl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.7881416e-07, 0)
-scale = Vector2(0.09375001, 0.203125)
-texture = ExtResource("1_rivwi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.605, 0)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_iax2e")
+animation = &"tiro"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rivwi")
