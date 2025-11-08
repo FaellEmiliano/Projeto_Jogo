@@ -58,6 +58,8 @@ func _physics_process(delta):
 		vida += regen * delta
 
 func die() -> void:
+	upgrade.reset()
+	atualizar()
 	is_dead = true
 	state = "death"
 	state_machine.play(state)
