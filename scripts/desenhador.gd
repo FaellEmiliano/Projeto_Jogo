@@ -48,6 +48,7 @@ func posicionar_sala(pos :Vector2i, flag :int) -> void:
 	var sala_inst
 	var sala_segura
 	var sala_inicial
+	var sala_boss
 	if flag == 2:
 		if nivel == 1:
 			sala_segura = load("res://cenas/sala_segura.tscn")
@@ -71,6 +72,14 @@ func posicionar_sala(pos :Vector2i, flag :int) -> void:
 			sala_inicial = load("res://cenas/sala_final2.tscn")
 		if nivel == 3:
 			sala_inicial = load("res://cenas/sala_final3.tscn")
+		sala_inst = sala_inicial.instantiate()
+	elif flag == 4:
+		if nivel == 1:
+			sala_boss = load("res://cenas/sala_boss.tscn")
+		if nivel == 2:
+			sala_boss = load("res://cenas/sala_boss.tscn")
+		if nivel == 3:
+			sala_boss = load("res://cenas/sala_boss.tscn")
 		sala_inst = sala_inicial.instantiate()
 	else:
 		var sala

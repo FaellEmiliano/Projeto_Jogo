@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://b70lox322hunt"]
+
+[ext_resource type="Texture2D" uid="uid://bdhavn3rryita" path="res://Sprites/principal_frontal.png" id="1_2iqyn"]
+[ext_resource type="Script" uid="uid://g1d1ph3usbg4" path="res://scripts/vampiro.gd" id="1_38ssa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38ssa"]
+size = Vector2(28, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkbcm"]
+size = Vector2(28, 56.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyt2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kornl"]
+atlas = ExtResource("1_2iqyn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2014h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kornl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="vampiro" type="CharacterBody2D" groups=["Enemy"]]
+script = ExtResource("1_38ssa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, -3)
+shape = SubResource("RectangleShape2D_38ssa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-2, -3)
+shape = SubResource("RectangleShape2D_qkbcm")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+scale = Vector2(55, 55)
+shape = SubResource("CircleShape2D_hyt2a")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "10000/10000"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2014h")
+animation = &"idle"
+frame_progress = 0.5734998

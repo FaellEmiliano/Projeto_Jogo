@@ -4,6 +4,7 @@ var inimigos :int
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
 var pesos_inimigos = [1,4,5]
+var pode_pegar = false
 
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
@@ -46,7 +47,9 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 func _process(_delta: float) -> void:
 	if player_entrou:
 		abrir_portas(vizinhos_instanciados)
-	
+	if pode_pegar and Input.is_action_just_pressed("Pegar_item"):
+		get_tree().change_scene_to_file("res://cenas/interface_sec.tscn")
+
 
 func _on_saida_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://cenas/interface_sec.tscn")
+	pode_pegar = 1
