@@ -1,7 +1,7 @@
 extends TextureProgressBar
 
-@onready var jogador =  $"../.."
+@onready var boss =  $"../.."
 
 func _physics_process(_delta: float) -> void:
-	value = jogador.vida
+	value = boss.vida
 	max_value = upgrade.vida_max

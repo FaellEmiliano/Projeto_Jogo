@@ -1,6 +1,6 @@
 extends Node2D
 var player_entrou :bool = false
-var inimigos :int
+var inimigos :int = 1
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
 var pesos_inimigos = [2,4,4]
@@ -46,4 +46,5 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 
 
 func _on_saida_body_entered(_body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://cenas/Mundo3.tscn")
+	if inimigos <= 0:
+		get_tree().change_scene_to_file("res://cenas/Mundo3.tscn")

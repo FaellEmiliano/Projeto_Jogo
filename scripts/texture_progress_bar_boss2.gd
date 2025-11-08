@@ -1,6 +1,6 @@
 extends TextureProgressBar
 
-@onready var zumbi_boss =  $"../.."
+@onready var esqueleto_boss =  $"../.."
 
 func _physics_process(_delta: float) -> void:
-	value = zumbi_boss.vida
+	value = esqueleto_boss.vida
