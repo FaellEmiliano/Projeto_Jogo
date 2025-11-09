@@ -1,6 +1,6 @@
 extends Node2D
 var player_entrou :bool = false
-var inimigos :int
+var inimigos :int = 2
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
 var pesos_inimigos = [2,4,4]
@@ -43,3 +43,8 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 		fechar_portas(vizinhos_instanciados)
 		
 	
+
+
+func _on_saida_body_entered(body: Node2D) -> void:
+	if inimigos <= 0:
+		get_tree().change_scene_to_file("res://cenas/interface_sec.tscn")
