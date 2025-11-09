@@ -322,7 +322,7 @@ script = SubResource("GDScript_ybwhg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 position = Vector2(-1.2772406e-06, -2.857141)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.99999917, 0.99999917)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -331,11 +331,10 @@ scale = Vector2(1.1, 1.1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 show_behind_parent = true
 position = Vector2(-8.9406956e-07, 0.71428573)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
-visible = false
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
@@ -343,9 +342,9 @@ show_behind_parent = true
 shape = SubResource("CircleShape2D_kramk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_h6b0a")
-animation = &"idle"
+animation = &"walk_x"
+frame_progress = 0.70353305
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

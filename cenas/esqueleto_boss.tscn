@@ -234,7 +234,7 @@ veloc_tiro = 350
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 show_behind_parent = true
 position = Vector2(-1.2772406e-06, -2.857141)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -243,7 +243,7 @@ scale = Vector2(1.1, 1.1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 show_behind_parent = true
 position = Vector2(-8.9406956e-07, 0.71428573)
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_bjbex")
 
 [node name="DetectionArea" type="Area2D" parent="." groups=["enemy"]]
@@ -255,7 +255,7 @@ show_behind_parent = true
 shape = SubResource("CircleShape2D_kramk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_h6b0a")
 animation = &"idle"
 
