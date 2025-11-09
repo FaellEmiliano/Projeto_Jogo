@@ -1,5 +1,6 @@
 extends Label
 
+var vida_maxima
 var vida_atual :int
 var texto
 @onready var esqueleto_boss = $"../../.."
