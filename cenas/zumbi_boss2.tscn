@@ -1,9 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://cqchg7w1lp56i"]
+[gd_scene load_steps=33 format=3 uid="uid://cqchg7w1lp56i"]
 
 [ext_resource type="Script" uid="uid://bhh5g26ve843e" path="res://scripts/zumbi_boss_2.gd" id="1_w2g3v"]
 [ext_resource type="Texture2D" uid="uid://gbb3pjnh5xut" path="res://Sprites/Animação Frente.png" id="2_u81om"]
 [ext_resource type="Texture2D" uid="uid://03ij71m48c1u" path="res://Sprites/Animação de Costas.png" id="3_g6oqi"]
 [ext_resource type="Texture2D" uid="uid://xlyh2m5b1d32" path="res://Sprites/Animação de Lado Direito.png" id="4_y7ktn"]
+[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="5_yt7yc"]
+[ext_resource type="Texture2D" uid="uid://dgi6348ykacpn" path="res://Sprites/Barra_de_vida_inimigo.png" id="6_fm314"]
+[ext_resource type="Script" uid="uid://cmbmeq7ytn4ep" path="res://scripts/texture_progress_bar_zumbiboss2.gd" id="7_6n57q"]
+[ext_resource type="Script" uid="uid://d0icvnmswtisb" path="res://scripts/label_zumbiboss2.gd" id="8_x8enu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
 size = Vector2(39.48053, 85.454575)
@@ -216,6 +220,36 @@ position = Vector2(-1.4285715, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ako7d")
 animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 632.0
+offset_top = -290.0
+offset_right = 884.0
+offset_bottom = -250.0
+grow_vertical = 0
+max_value = 20000.0
+value = 20.0
+texture_under = ExtResource("5_yt7yc")
+texture_progress = ExtResource("6_fm314")
+script = ExtResource("7_6n57q")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = -24.0
+offset_right = 157.0
+offset_bottom = -1.0
+text = "100/100"
+script = ExtResource("8_x8enu")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
