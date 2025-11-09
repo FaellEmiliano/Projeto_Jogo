@@ -9,7 +9,7 @@ var inimigos := [0,0,0,0]
 func _on_area_sala_body_entered(body: Node2D) -> void:
 	await get_tree().process_frame
 	if body.is_in_group("character") and not sala.player_entrou:
-		print(inimigos)
+		
 		for c in range(get_child_count()):
 			if inimigos[c] != 0:
 				sala.inimigos +=1
@@ -24,6 +24,7 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 				add_child(inimigo_inst)
 		if inimigos == [0,0,0,0]:
 			sala.player_entrou = 1
+		print(inimigos)
 
 func aleatorizar():
 	var valores = [0, 1, 2]

@@ -1,11 +1,12 @@
 extends Label
 
+var vida_atual :int
+var texto
+@onready var esqueleto_boss_2: CharacterBody2D = $"../../.."
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _physics_process(_delta: float) -> void:
+	vida_atual = esqueleto_boss_2.vida
+	texto = 'Zumbi' + str(vida_atual) + '/' + '25000'
+	text = texto
+	if vida_atual <= 0:
+		queue_free()

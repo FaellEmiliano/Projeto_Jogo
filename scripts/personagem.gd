@@ -22,8 +22,8 @@ func movimentacao():
 		return
 	
 
-#func _ready():
-	#_state_machine= $StateMachine
+func _ready():
+	atualizar()#_state_machine= $StateMachine
 
 func atirar():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and timer <= 0:
