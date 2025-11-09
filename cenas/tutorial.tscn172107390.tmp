@@ -1,0 +1,193 @@
+[gd_scene load_steps=26 format=4 uid="uid://djgbngd34kdn3"]
+
+[ext_resource type="Script" uid="uid://5fcaeswy6ssu" path="res://scripts/tutorial.gd" id="1_cilvw"]
+[ext_resource type="Script" uid="uid://mideg5cbxtl2" path="res://scripts/sala_tutorial.gd" id="2_hdlur"]
+[ext_resource type="Script" uid="uid://bo3h7yjtuxf25" path="res://scripts/camera_2d.gd" id="3_bhou2"]
+[ext_resource type="Texture2D" uid="uid://bk711td10o3tk" path="res://Sprites/chãoSpriteSheet.png" id="3_lalww"]
+[ext_resource type="Texture2D" uid="uid://cpaaoxytvapqs" path="res://Sprites/QUINA 2.0.png" id="4_bhou2"]
+[ext_resource type="PackedScene" uid="uid://c4d6wabt26rto" path="res://cenas/menu_btn.tscn" id="4_nwfb3"]
+[ext_resource type="Texture2D" uid="uid://c87xvjbbqyx8p" path="res://Sprites/Parede 1023.png" id="5_nwfb3"]
+[ext_resource type="Texture2D" uid="uid://bdwu2darhoh2d" path="res://Sprites/Porta aberta 2.png" id="6_lb74p"]
+[ext_resource type="Texture2D" uid="uid://bltcs13dp18hx" path="res://Sprites/Porta fechada 2.png" id="7_2eb1v"]
+[ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="8_l3335"]
+[ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="9_2xpiv"]
+[ext_resource type="PackedScene" uid="uid://bbkvwvo0xtobn" path="res://cenas/Personagem.tscn" id="10_64spd"]
+[ext_resource type="PackedScene" uid="uid://byuha4l114xwp" path="res://cenas/indicacoes.tscn" id="11_o4jp7"]
+[ext_resource type="PackedScene" uid="uid://b1j42d7a8wjtd" path="res://cenas/sala.tscn" id="12_hdlur"]
+[ext_resource type="PackedScene" uid="uid://dx26ymni0jlrp" path="res://cenas/sala_final.tscn" id="14_lb74p"]
+[ext_resource type="Script" uid="uid://d33p522rwg8kh" path="res://scripts/sala_final_tutorial.gd" id="15_2eb1v"]
+[ext_resource type="PackedScene" uid="uid://b52c44um4da6e" path="res://cenas/sala_segura.tscn" id="15_nwfb3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jcbu"]
+texture = ExtResource("3_lalww")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/z_index = -100
+1:0/0 = 0
+1:0/0/z_index = -100
+0:1/0 = 0
+0:1/0/z_index = -100
+1:1/0 = 0
+1:1/0/z_index = -100
+0:2/0 = 0
+0:2/0/z_index = -100
+1:2/0 = 0
+1:2/0/z_index = -100
+0:3/0 = 0
+0:3/0/z_index = -100
+1:3/0 = 0
+1:3/0/z_index = -100
+0:4/0 = 0
+0:4/0/z_index = -100
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs2om"]
+texture = ExtResource("4_bhou2")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk4am"]
+texture = ExtResource("5_nwfb3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pev0"]
+texture = ExtResource("6_lb74p")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u06rq"]
+texture = ExtResource("7_2eb1v")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwr2a"]
+texture = ExtResource("8_l3335")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_d4nyj"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/9 = SubResource("TileSetAtlasSource_vwr2a")
+sources/2 = SubResource("TileSetAtlasSource_uk4am")
+sources/11 = SubResource("TileSetAtlasSource_xs2om")
+sources/6 = SubResource("TileSetAtlasSource_u06rq")
+sources/5 = SubResource("TileSetAtlasSource_6pev0")
+sources/0 = SubResource("TileSetAtlasSource_7jcbu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p6ll"]
+size = Vector2(704, 320)
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_cilvw")
+
+[node name="personagem" parent="." instance=ExtResource("10_64spd")]
+position = Vector2(480, 287)
+
+[node name="Sala_tutorial" type="Node2D" parent="."]
+script = ExtResource("2_hdlur")
+
+[node name="TSala" type="TileMapLayer" parent="Sala_tutorial"]
+tile_map_data = PackedByteArray("AAABAAIAAgAAAAEAAAABAAMAAgAAAAEAAAABAAQAAgAAAAEAAAABAAUAAgAAAAEAAAABAAYAAgAAAAEAAAACAAEAAgAAAAAAAAACAAcAAgAAAAIAAAADAAEAAgAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAcAAgAAAAIAAAAEAAEAAgAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAcAAgAAAAIAAAAFAAEAAgAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAcAAgAAAAIAAAAGAAEAAgAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAcAAgAAAAIAAAAHAAEAAgAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAcAAgAAAAIAAAAIAAEAAgAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAcAAgAAAAIAAAAJAAEAAgAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAcAAgAAAAIAAAAKAAEAAgAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAAKAAcAAgAAAAIAAAALAAEAAgAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAcAAgAAAAIAAAAMAAEAAgAAAAAAAAAMAAcAAgAAAAIAAAANAAIAAgAAAAMAAAANAAMAAgAAAAMAAAANAAQAAgAAAAMAAAANAAUAAgAAAAMAAAANAAYAAgAAAAMAAAAOAAEACQAAAAAAAAAOAAAACQAAAAAAAAANAAAACQAAAAAAAAAMAAAACQAAAAAAAAALAAAACQAAAAAAAAAKAAAACQAAAAAAAAAJAAAACQAAAAAAAAAIAAAACQAAAAAAAAAHAAAACQAAAAAAAAAGAAAACQAAAAAAAAAFAAAACQAAAAAAAAAEAAAACQAAAAAAAAADAAAACQAAAAAAAAACAAAACQAAAAAAAAABAAAACQAAAAAAAAAAAAAACQAAAAAAAAAAAAEACQAAAAAAAAAAAAIACQAAAAAAAAAAAAMACQAAAAAAAAAAAAQACQAAAAAAAAAAAAUACQAAAAAAAAAAAAYACQAAAAAAAAAAAAcACQAAAAAAAAAAAAgACQAAAAAAAAABAAgACQAAAAAAAAACAAgACQAAAAAAAAADAAgACQAAAAAAAAAEAAgACQAAAAAAAAAFAAgACQAAAAAAAAAGAAgACQAAAAAAAAAHAAgACQAAAAAAAAAIAAgACQAAAAAAAAAJAAgACQAAAAAAAAAKAAgACQAAAAAAAAALAAgACQAAAAAAAAAMAAgACQAAAAAAAAANAAgACQAAAAAAAAAOAAcACQAAAAAAAAAOAAYACQAAAAAAAAAOAAUACQAAAAAAAAAOAAQACQAAAAAAAAAOAAMACQAAAAAAAAAOAAIACQAAAAAAAAAOAAgACQAAAAAAAAABAAEACwAAAAAAAAABAAcACwAAAAEAAAANAAcACwAAAAIAAAANAAEACwAAAAMAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAAMAAYAAAABAAIAAAAMAAUAAAABAAAAAAAMAAQAAAABAAAAAAAMAAMAAAABAAAAAAACAAIAAAAAAAMAAAALAAIAAAAAAAEAAAAKAAIAAAAAAAEAAAAJAAIAAAAAAAEAAAAIAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAADAAIAAAAAAAEAAAACAAYAAAABAAMAAAAMAAIAAAAAAAQAAAALAAYAAAAAAAIAAAAKAAYAAAAAAAIAAAAJAAYAAAAAAAIAAAAIAAYAAAAAAAIAAAAHAAYAAAAAAAIAAAAGAAYAAAAAAAIAAAAFAAYAAAAAAAIAAAAEAAYAAAAAAAIAAAADAAYAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_d4nyj")
+
+[node name="Area_sala" type="Area2D" parent="Sala_tutorial"]
+visible = false
+position = Vector2(-5, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sala_tutorial/Area_sala"]
+position = Vector2(486, 292)
+shape = SubResource("RectangleShape2D_8p6ll")
+
+[node name="porta_oeste" parent="Sala_tutorial" instance=ExtResource("9_2xpiv")]
+visible = false
+position = Vector2(86, 290)
+
+[node name="Marker2D" type="Marker2D" parent="Sala_tutorial/porta_oeste"]
+position = Vector2(-269, 0)
+
+[node name="porta_norte" parent="Sala_tutorial" instance=ExtResource("9_2xpiv")]
+visible = false
+position = Vector2(479, 84)
+
+[node name="Marker2D" type="Marker2D" parent="Sala_tutorial/porta_norte"]
+position = Vector2(1, -252)
+
+[node name="porta_sul" parent="Sala_tutorial" instance=ExtResource("9_2xpiv")]
+visible = false
+position = Vector2(487, 492)
+
+[node name="Marker2D" type="Marker2D" parent="Sala_tutorial/porta_sul"]
+position = Vector2(-2, 251)
+
+[node name="porta_leste" parent="Sala_tutorial" instance=ExtResource("9_2xpiv")]
+visible = false
+position = Vector2(876, 283)
+
+[node name="Marker2D" type="Marker2D" parent="Sala_tutorial/porta_leste"]
+position = Vector2(257, -6)
+
+[node name="Node2D" type="Node2D" parent="Sala_tutorial"]
+
+[node name="indicação4" parent="Sala_tutorial/Node2D" instance=ExtResource("11_o4jp7")]
+position = Vector2(755, 287)
+
+[node name="indicação3" parent="Sala_tutorial/Node2D" instance=ExtResource("11_o4jp7")]
+position = Vector2(205, 288)
+
+[node name="indicação2" parent="Sala_tutorial/Node2D" instance=ExtResource("11_o4jp7")]
+position = Vector2(480, 391)
+
+[node name="indicação" parent="Sala_tutorial/Node2D" instance=ExtResource("11_o4jp7")]
+position = Vector2(480, 185)
+
+[node name="Sala" parent="." instance=ExtResource("12_hdlur")]
+position = Vector2(0, -576)
+
+[node name="Sala_Segura" parent="." instance=ExtResource("15_nwfb3")]
+position = Vector2(0, -1152)
+
+[node name="Sala_final_tutorial" parent="." instance=ExtResource("14_lb74p")]
+position = Vector2(0, -1728)
+script = ExtResource("15_2eb1v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(2, 2)
+anchor_mode = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
+script = ExtResource("3_bhou2")
+
+[node name="menu_btn" parent="Camera2D" instance=ExtResource("4_nwfb3")]
+
+[connection signal="body_entered" from="Sala_tutorial/Area_sala" to="Sala_tutorial" method="_on_area_sala_body_entered"]
+[connection signal="body_exited" from="Sala_tutorial/Area_sala" to="Sala_tutorial" method="_on_area_sala_body_exited"]
+[connection signal="tree_exited" from="Sala_tutorial/Node2D/indicação4" to="Sala_tutorial" method="_on_saiu"]
+[connection signal="tree_exited" from="Sala_tutorial/Node2D/indicação3" to="Sala_tutorial" method="_on_saiu"]
+[connection signal="tree_exited" from="Sala_tutorial/Node2D/indicação2" to="Sala_tutorial" method="_on_saiu"]
+[connection signal="tree_exited" from="Sala_tutorial/Node2D/indicação" to="Sala_tutorial" method="_on_saiu"]
