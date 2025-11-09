@@ -4,12 +4,12 @@ var _is_dead: bool = false
 var _player_ref  = null
 
 @export_category("object")
-@export var vida :int = 25000
-@export var dano :int = 100
+@export var vida :int = 1000
+@export var dano :int = 50
 var tiro = load("res://cenas/tiro_esqueleto.tscn")
 var timer :float = 0.0
 @export var fire_rate :float = 1.5
-@export var veloc_tiro = 270
+@export var veloc_tiro = 100
 var state = "idle"
 @onready var state_machine = $AnimatedSprite2D
 

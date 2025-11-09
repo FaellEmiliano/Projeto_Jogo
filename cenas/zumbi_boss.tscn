@@ -5,6 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dltj8ppwt8gp8" path="res://Sprites/Animação_zumbi_morte.png" id="2_6agqy"]
 [ext_resource type="Texture2D" uid="uid://03ij71m48c1u" path="res://Sprites/Animação de Costas.png" id="2_igdkm"]
 [ext_resource type="Texture2D" uid="uid://xlyh2m5b1d32" path="res://Sprites/Animação de Lado Direito.png" id="3_6agqy"]
+[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="5_3ygmr"]
+[ext_resource type="Texture2D" uid="uid://dgi6348ykacpn" path="res://Sprites/Barra_de_vida_inimigo.png" id="6_bnnqm"]
+[ext_resource type="Script" uid="uid://dlpws8v6yty48" path="res://scripts/texture_progress_bar_boss.gd" id="7_w1feo"]
+[ext_resource type="Script" uid="uid://dex8dvhc7vjvc" path="res://cenas/label_boss1.gd" id="8_1fm14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjbex"]
 size = Vector2(39.48053, 85.454575)
@@ -451,6 +455,34 @@ position = Vector2(-1.4285713, 1.70299e-07)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ako7d")
 animation = &"idle"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 852.0
+offset_top = -536.0
+offset_right = 1104.0
+offset_bottom = -496.0
+grow_vertical = 0
+max_value = 10000.0
+texture_under = ExtResource("5_3ygmr")
+texture_progress = ExtResource("6_bnnqm")
+script = ExtResource("7_w1feo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureProgressBar"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = -24.0
+offset_right = 157.0
+offset_bottom = -1.0
+script = ExtResource("8_1fm14")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

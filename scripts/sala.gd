@@ -1,9 +1,11 @@
 extends Node2D
 var player_entrou :bool = false
-var inimigos :int = 1
+var inimigos :int = 0
 @onready var tilemap = $TSala
 var vizinhos_instanciados :Array
 var pesos_inimigos = [1,4,5]
+var boss = load("res://cenas/zumbi_boss.tscn")
+
 
 
 func _on_area_sala_body_exited(body: Node2D) -> void:
@@ -39,6 +41,12 @@ func abrir_portas(vizinhos:Array):
 func _on_area_sala_body_entered(body: Node2D) -> void:
 	eventos.player_entrou.emit(self)
 	if body.is_in_group("character") and not player_entrou:
+		if self.name == "Sala_final":
+			var zumbi = boss.instantiate()
+			zumbi.position = Vector2(480,286)
+			add_child(zumbi)
+			inimigos += 1
+		
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bfq7o3ub5uesk"]
+[gd_scene load_steps=18 format=4 uid="uid://bfq7o3ub5uesk"]
 
 [ext_resource type="Script" uid="uid://cqoeeo0acpxci" path="res://scripts/sala_final_2.gd" id="1_4l8a1"]
 [ext_resource type="Texture2D" uid="uid://bsbsbd31jv8bg" path="res://Sprites/Mundo 2/Parede.png" id="2_4l8a1"]
@@ -8,11 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://dq0b6ftwst6sa" path="res://Sprites/Mundo 2/Porta fechada 2.png" id="6_c246m"]
 [ext_resource type="Texture2D" uid="uid://bb1r53jxn6nhk" path="res://Sprites/fundo.png" id="7_iujne"]
 [ext_resource type="PackedScene" uid="uid://dulo2wd4f52kj" path="res://cenas/porta.tscn" id="8_qffra"]
-[ext_resource type="PackedScene" uid="uid://cidaud23653q6" path="res://cenas/esqueleto_boss.tscn" id="9_bpu0w"]
-[ext_resource type="Texture2D" uid="uid://wwk4kjnfp782" path="res://Sprites/Barra_de_vida_vazia.png" id="10_iujne"]
-[ext_resource type="Texture2D" uid="uid://dgi6348ykacpn" path="res://Sprites/Barra_de_vida_inimigo.png" id="11_qffra"]
-[ext_resource type="Script" uid="uid://bqbrwkcvkgck0" path="res://scripts/texture_progress_bar_boss2.gd" id="12_2dpow"]
-[ext_resource type="Script" uid="uid://da64xvues1ds0" path="res://scripts/label_boss2.gd" id="13_rkjo2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74bm3"]
 texture = ExtResource("2_4l8a1")
@@ -99,7 +94,7 @@ size = Vector2(704, 320)
 [sub_resource type="CircleShape2D" id="CircleShape2D_4l8a1"]
 radius = 33.01515
 
-[node name="Sala_final" type="Node2D"]
+[node name="Sala_final2" type="Node2D"]
 script = ExtResource("1_4l8a1")
 
 [node name="TSala" type="TileMapLayer" parent="."]
@@ -147,38 +142,6 @@ position = Vector2(257, -6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="saida"]
 position = Vector2(480, 286)
 shape = SubResource("CircleShape2D_4l8a1")
-
-[node name="esqueleto_boss" parent="." instance=ExtResource("9_bpu0w")]
-position = Vector2(480.99997, 275.99997)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="esqueleto_boss"]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="esqueleto_boss/CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 844.0
-offset_top = -312.0
-offset_right = 1096.0
-offset_bottom = -272.0
-grow_vertical = 0
-value = 20.0
-texture_under = ExtResource("10_iujne")
-texture_progress = ExtResource("11_qffra")
-script = ExtResource("12_2dpow")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="esqueleto_boss/CanvasLayer/TextureProgressBar"]
-layout_mode = 0
-offset_left = 95.0
-offset_top = -24.0
-offset_right = 157.0
-offset_bottom = -1.0
-text = "100/100"
-script = ExtResource("13_rkjo2")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Area_sala" to="." method="_on_area_sala_body_entered"]
 [connection signal="body_exited" from="Area_sala" to="." method="_on_area_sala_body_exited"]
