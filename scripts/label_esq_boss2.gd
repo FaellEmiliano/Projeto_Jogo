@@ -6,7 +6,7 @@ var texto
 
 func _physics_process(_delta: float) -> void:
 	vida_atual = esqueleto_boss_2.vida
-	texto = 'Zumbi' + str(vida_atual) + '/' + '25000'
+	texto = 'Esqueleto ' + str(vida_atual) + '/' + '25000'
 	text = texto
 	if vida_atual <= 0:
 		queue_free()

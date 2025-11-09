@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://belseh70yciui"]
+[gd_scene load_steps=79 format=3 uid="uid://belseh70yciui"]
 
 [ext_resource type="Script" uid="uid://dg4hca1i84rvc" path="res://scripts/esqueleto_boss_2.gd" id="1_kl672"]
 [ext_resource type="Texture2D" uid="uid://cm38idflmrb2h" path="res://Sprites/Esqueleto_frente_mov.png" id="2_14rtj"]

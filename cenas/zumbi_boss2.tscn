@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cqchg7w1lp56i"]
+[gd_scene load_steps=67 format=3 uid="uid://cqchg7w1lp56i"]
 
 [ext_resource type="Script" uid="uid://bhh5g26ve843e" path="res://scripts/zumbi_boss_2.gd" id="1_w2g3v"]
 [ext_resource type="Texture2D" uid="uid://dltj8ppwt8gp8" path="res://Sprites/Animação_zumbi_morte.png" id="2_g6oqi"]

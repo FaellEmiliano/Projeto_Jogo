@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcf20i602eiin"]
+[gd_scene load_steps=15 format=3 uid="uid://bcf20i602eiin"]
 
 [ext_resource type="Script" uid="uid://b7badjurxv5or" path="res://scripts/mundo_2.gd" id="1_amaq7"]
 [ext_resource type="Script" uid="uid://bbd7tbofyrmoy" path="res://scripts/desenhador.gd" id="2_f2xqb"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://del7frv15uvdx" path="res://Sprites/mapa_entrado.png" id="8_ux7mc"]
 [ext_resource type="Script" uid="uid://ck42iurc8o22x" path="res://scripts/tile_miniatura.gd" id="9_i1jn4"]
 [ext_resource type="Texture2D" uid="uid://dtrxdhncjtofo" path="res://Sprites/Minimapa.png" id="10_4xb6d"]
+[ext_resource type="AudioStream" uid="uid://clbxfkipl3o06" path="res://musica.mp3" id="11_f2xqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bj1bn"]
 texture = ExtResource("7_axoaq")
@@ -83,3 +84,9 @@ script = ExtResource("9_i1jn4")
 position = Vector2(1, -1)
 texture = ExtResource("10_4xb6d")
 centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f2xqb")
+volume_db = -8.988
+autoplay = true
+parameters/looping = true
