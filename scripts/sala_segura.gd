@@ -41,7 +41,8 @@ func abrir_portas(vizinhos:Array):
 
 func _on_area_sala_body_entered(body: Node2D) -> void:
 	eventos.player_entrou.emit(self)
-	if body.is_in_group("character") and not player_entrou:
+	if body.is_in_group("character"):
+		abrir_portas(vizinhos_instanciados)
 		eventos.desenhar_mapa.emit(self)
 		
 func _on_seta_ativada(_seta_acionada):

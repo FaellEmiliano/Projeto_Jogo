@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 		elif self.name == "Upgrade_Veloc":
 			print("velocidade")
 			player_ref.upgrades[2] += 1 
-			upgrade.atualizar(0)
+			upgrade.atualizar(3)
 			player_ref.atualizar()
 		
 		print(player_ref.upgrades)

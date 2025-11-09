@@ -42,9 +42,6 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 		eventos.desenhar_mapa.emit(self)
 		fechar_portas(vizinhos_instanciados)
 		
-	
-
-
-func _on_saida_body_entered(body: Node2D) -> void:
+func _on_saida_body_entered(_body: Node2D) -> void:
 	if inimigos <= 0:
-		get_tree().change_scene_to_file("res://cenas/interface_sec.tscn")
+		get_tree().change_scene_to_file("res://cenas/creditos.tscn")
