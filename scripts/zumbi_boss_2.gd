@@ -52,7 +52,6 @@ func _animate() -> void:
 func morte() -> void:
 	_is_dead = true
 	state_machine.play("death")
-	await get_tree().create_timer(3).timeout
 	queue_free()
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
