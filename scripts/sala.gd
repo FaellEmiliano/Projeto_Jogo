@@ -41,7 +41,7 @@ func _on_area_sala_body_entered(body: Node2D) -> void:
 	if body.is_in_group("character") and not player_entrou:
 		fechar_portas(vizinhos_instanciados)
 		eventos.desenhar_mapa.emit(self)
-		if self.name == "Sala_final":
+		if self.name == "Sala_final":             #para a sala final
 			var zumbi = boss.instantiate()
 			zumbi.position = Vector2(480,286)
 			add_child(zumbi)
