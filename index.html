@@ -15,6 +15,7 @@
         <ul class="nav-list">
                 <li><a href="index.html">Sobre</a></li>
                 <li><a href="tutorial.html">Tutorial</a></li>
+                <li><a href="codespace.html">Código</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
             
                 <li>
@@ -27,8 +28,48 @@
             </ul>
     </nav>
     <main>
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="gif_inicial.gif" alt="Slide 1"> 
+                </div>
+                <div class="slide">
+                    <img src="radio2.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="radio3.jpg" alt="Slide 3">
+                </div> 
+                <div class="slide">
+                    <img src="radio4.jpg" alt="Slide 4">
+                </div>
+                
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                </div>
+
+            <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+
+
+
+
+
+
+            </div>
+        </div>
         <div id="conteudo-apresentacao">
-            <img src="apresentacao_imagem.jpg" class="conteudo-imagem">
             <div class="conteudo-textual">
                 <h2>Apresentação</h2>
                 <p>Mini Dungeons é um jogo 2D do gênero <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiAhofi2uKQAxX1BrkGHZ2CMA4QFnoECDsQAQ&url=https%3A%2F%2Fcanaltech.com.br%2Fgames%2Fo-que-e-um-jogo-roguelite-guia-completo-sobre-o-genero%2F&usg=AOvVaw0jd6hBgSm5-6PvQQ_P-mF4&opi=89978449">Roguelite</a>, <a href="https://gogamers.gg/gamepedia/jogos-de-sobrevivencia-melhores-games">Sobrevivência</a> e <a href="https://olhardigital.com.br/2025/11/02/games-e-consoles/o-que-sao-jogos-dungeon-crawler">Dungeon Crawler </a>com o objetivo de explorar salas, derrotar inimigos e adquirir melhorias para o personagem.
@@ -56,7 +97,7 @@
                             <path d="M4.006 0v1.6h15.988V0zm15.988 1.6v1.6h1.6V1.6zm1.6 1.6v14.4h-1.6v1.6H4.006v-1.6h-1.6V3.2H0.809v17.6h1.599v1.6h1.599V24h15.988v-1.6h1.6v-1.6h1.598V3.2zm-19.187 0h1.599V1.6h-1.6zm4.796 3.2v6.4h1.6V6.4zm7.995 0v6.4h1.599V6.4z" stroke-width="1">
                         </svg>
                     </span>
-                    <h3>Azeprite</h3>
+                    <h3>Aseprite</h3>
                     <p>Programa que permitiu a criação de sprites e animações 2D</p>
                 </div>
 
@@ -85,9 +126,22 @@
             <img src="godot-jogo_imagem.jpg" class="conteudo-godot-imagem">
             <div class="conteudo-textual-godot">
                 <h2>Geração Aleatória do Mapa</h2>
-                <p>O código mais importante e complexo do jogo. Utilizando de algoritmos de <i>backtracking</i>(técnica de busca que resolve problemas por tentativa e erro, explorando caminhos e "retrocedendo" quando um caminho leva a um beco sem saída) é possível gerar mapas aleatórios para que cada partida e cada nível seja único, transformando a experiencia do jogador em novos desafios.</p>
+                <p>O código mais importante e complexo do jogo. Utilizando de algoritmos de <i>backtracking</i> (técnica de busca que resolve problemas por tentativa e erro, explorando caminhos e "retrocedendo" quando um caminho leva a um beco sem saída) é possível gerar mapas aleatórios para que cada partida e cada nível seja único, transformando a experiencia do jogador em novos desafios.</p>
             </div>
         </div>
+
+        <div class="gameplay-content">
+        <h2 id="topic">Gameplay</h2>
+        <p>Confira abaixo um vídeo demonstrativo do jogo Mini Dungeons (<a href="https://github.com/FaellEmiliano/Projeto_Jogo/releases/tag/1.1" target="_blank">Dowload</a>)</p><br>
+            <div>
+                <iframe width="640" height="360" 
+            src="https://www.youtube.com/embed/RngQARWrrEk" 
+            frameborder="0" allowfullscreen>
+                    frameborder="0" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
         <section class="features">
             <h2 id="topic">Por que jogar?</h2>
             <div class="feature-grid">
