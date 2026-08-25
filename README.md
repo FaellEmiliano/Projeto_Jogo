@@ -4,8 +4,6 @@
 >
 > Este repositório representa um projeto de criação de jogos realizado no 1 ano do curso técnico em DS
 
-O desenvolvimento atual continua em:
-
 A versão web deste protótipo pode ser acessada em:
 
 https://faellemiliano.github.io/Projeto_Jogo/
